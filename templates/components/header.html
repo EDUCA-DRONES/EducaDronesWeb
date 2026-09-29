@@ -1,0 +1,20 @@
+{% load static %}
+
+<header class="site-header">
+    <h1>header</h1>
+
+    <a href="{% url 'home'%}">
+        <span>Home</span>
+    </a>
+    
+    <a href="{% url 'integrantes'%}">
+        <span>Nosso Time</span>
+    </a>
+
+    <a href="{% url 'sobre'%}">
+        <span>Sobre Nos</span>
+    </a>
+
+</header>
+
+<link rel="stylesheet" href="{% static 'css/components/header.css' %}">

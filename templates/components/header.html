@@ -1,20 +1,199 @@
 {% load static %}
 
 <header class="site-header">
-    <h1>header</h1>
 
-    <a href="{% url 'home'%}">
-        <span>Home</span>
-    </a>
-    
-    <a href="{% url 'integrantes'%}">
-        <span>Nosso Time</span>
-    </a>
+    <!-- Botão hambúrguer -->
+    <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
-    <a href="{% url 'sobre'%}">
-        <span>Sobre Nos</span>
-    </a>
+
+    <!-- Logo -->
+    <div class="site-header__logo">
+
+        <a href="{% url 'home' %}">
+            Educa Drones
+        </a>
+
+    </div>
+
+
+    <!-- Menu normal para PC -->
+    <nav class="site-header__desktop-nav">
+
+        <a href="{% url 'home' %}">
+            Início
+        </a>
+
+        <a href="#">
+            Blog
+        </a>
+
+        <a href="{% url 'sobre' %}">
+            Sobre
+        </a>
+
+        <a href="{% url 'integrantes' %}">
+            Membros
+        </a>
+
+        <a href="#">
+            Colibri
+        </a>
+
+        <a href="#">
+            OBaDrones
+        </a>
+
+    </nav>
+
+
+    <!-- Menu lateral para telas menores -->
+    <nav class="site-header__mobile-nav">
+
+        <!-- Cabeçalho do menu -->
+        <div class="mobile-nav-header">
+
+            <span>
+                Menu
+            </span>
+
+            <button
+                class="menu-close"
+                type="button"
+                aria-label="Fechar menu"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- Links -->
+        <div class="mobile-nav-links">
+
+            <a href="{% url 'home' %}">
+                Início
+            </a>
+
+            <a href="#">
+                Blog
+            </a>
+
+            <a href="{% url 'sobre' %}">
+                Sobre
+            </a>
+
+            <a href="{% url 'integrantes' %}">
+                Membros
+            </a>
+
+            <a href="#">
+                Colibri
+            </a>
+
+            <a href="#">
+                OBaDrones
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Fundo escuro atrás do menu -->
+    <div class="menu-overlay"></div>
 
 </header>
 
-<link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+
+<link
+    rel="stylesheet"
+    href="{% static 'css/components/header.css' %}"
+>
+
+
+<script>
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menuClose = document.querySelector(".menu-close");
+    const mobileNav = document.querySelector(".site-header__mobile-nav");
+    const menuOverlay = document.querySelector(".menu-overlay");
+
+
+    /* Abrir menu */
+
+    menuToggle.addEventListener("click", function () {
+
+        mobileNav.classList.add("active");
+        menuOverlay.classList.add("active");
+
+        menuToggle.classList.add("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        document.body.classList.add("menu-open");
+
+    });
+
+
+    /* Fechar pelo X */
+
+    menuClose.addEventListener("click", function () {
+
+        closeMenu();
+
+    });
+
+
+    /* Fechar clicando fora */
+
+    menuOverlay.addEventListener("click", function () {
+
+        closeMenu();
+
+    });
+
+
+    /* Função para fechar */
+
+    function closeMenu() {
+
+        mobileNav.classList.remove("active");
+        menuOverlay.classList.remove("active");
+
+        menuToggle.classList.remove("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        document.body.classList.remove("menu-open");
+
+    }
+
+
+    /* Fechar com ESC */
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            closeMenu();
+
+        }
+
+    });
+
+</script>

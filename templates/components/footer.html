@@ -1,7 +1,199 @@
 {% load static %}
 
 <footer class="site-footer">
-    <h1>footer</h1>
-</footer>
 
-<link rel="stylesheet" href="{% static 'css/components/footer.css' %}">
+    <div class="site-footer__container">
+
+        <!-- PARTE SUPERIOR -->
+        <div class="site-footer__top">
+
+            <!-- SOBRE -->
+            <div class="site-footer__about">
+                <h3>Educa Drones</h3>
+
+                <p>
+                    Têm interesse em levar o projeto para sua
+                    escola ou universidade? Entre em contato
+                    através do email ou por nossas redes sociais
+                </p>
+
+                <div class="site-footer__social">
+
+                    <a href="#" aria-label="Instagram">
+                        <img src="{% static 'img/footer/instagram.png' %}" alt="Instagram">
+                    </a>
+
+                    <a href="#" aria-label="LinkedIn">
+                        <img src="{% static 'img/footer/linkedin.png' %}" alt="LinkedIn">
+                    </a>
+
+                    <a href="#" aria-label="GitHub">
+                        <img src="{% static 'img/footer/git.png' %}" alt="GitHub">
+                    </a>
+
+                    <a href="#" aria-label="WhatsApp">
+                        <img src="{% static 'img/footer/whatsapp.png' %}" alt="WhatsApp">
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- PROGRAMAS -->
+            <div class="site-footer__column">
+
+                <h4>PROGRAMAS</h4>
+
+                <a href="#">Montagem e Configuração de Drones</a>
+                <a href="#">Pilotagem de Drones</a>
+                <a href="#">OBaDrones</a>
+                <a href="#">Colibri</a>
+
+            </div>
+
+
+            <!-- INSTITUIÇÃO -->
+            <div class="site-footer__column">
+
+                <h4>INSTITUIÇÃO</h4>
+
+                <a href="#">Sobre Nós</a>
+                <a href="#">Membros</a>
+                <a href="#">Equipes</a>
+                <a href="#">Newsletter</a>
+
+            </div>
+
+
+            <!-- CONTATO -->
+            <div class="site-footer__contact">
+
+                <h4>CONTATO</h4>
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        <img
+                            src="{% static 'img/footer/email.png' %}"
+                            alt="Email"
+                        >
+                    </div>
+
+                    <span>
+                        contato.educadrones@gmail.com
+                    </span>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        <img
+                            src="{% static 'img/footer/phone.png' %}"
+                            alt="Telefone"
+                        >
+                    </div>
+
+                    <span>
+                        (77) 99899-9999
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LINHA -->
+        <div class="site-footer__line"></div>
+
+
+        <!-- PARCEIROS -->
+        <div class="site-footer__partners">
+
+            <h4>PARCEIROS E COLABORADORES</h4>
+
+            <div class="partners-list">
+
+
+                <!-- PREFEITURA -->
+                <div class="partner">
+
+                    <div class="partner__logo">
+                        <img
+                            src="{% static 'img/footer/prefeitura.png' %}"
+                            alt="Prefeitura Municipal de Guanambi"
+                        >
+                    </div>
+
+                    <span>
+                        Prefeitura Municipal<br>
+                        de Guanambi
+                    </span>
+
+                </div>
+
+
+                <!-- CETEIA -->
+                <div class="partner">
+
+                    <div class="partner__logo">
+                        <img
+                            src="{% static 'img/footer/ceteia.png' %}"
+                            alt="CETEIA"
+                        >
+                    </div>
+
+                    <span>
+                        CETEIA - Centro de Estudos<br>
+                        Tecnológicos em Informática e Agronomia
+                    </span>
+
+                </div>
+
+
+                <!-- IF BAIANO -->
+                <div class="partner">
+
+                    <div class="partner__logo">
+                        <img
+                            src="{% static 'img/footer/if.png' %}"
+                            alt="IF Baiano"
+                        >
+                    </div>
+
+                    <span>
+                        IF Baiano<br>
+                        <em>Campus Guanambi</em>
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LINHA -->
+        <div class="site-footer__line"></div>
+
+
+        <!-- RODAPÉ -->
+        <div class="site-footer__bottom">
+
+            <span>
+                Copyright © 2025 Educa Drones Todos os direitos reservados.
+            </span>
+
+            <span>
+                Desenvolvido por
+                <a href="#">Rubens Ian</a>
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>

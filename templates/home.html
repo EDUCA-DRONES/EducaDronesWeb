@@ -179,75 +179,46 @@
 
                 <div class="home-achievements__cards">
 
-                    <article class="home-achievement-card">
-                        <div class="home-achievement-card__image">
-                            <img src="{% static 'img/home/ic-jr.png' %}" alt="">
-                        </div>
+    {% for conquista in conquistas %}
 
-                        <div>
-                            <h3>Primeira bolsa IC Jr. do CNPq</h3>
+        <article class="home-achievement-card">
 
-                            <p>
-                                Projeto Drone Modular reconhecido com iniciação
-                                científica júnior pela Mostra Nacional de Robótica (MNR).
-                            </p>
+            <div class="home-achievement-card__image">
 
-                            <span>2023</span>
-                        </div>
-                    </article>
+                <img
+                    src="{{ conquista.imagem.url }}"
+                    alt="{{ conquista.titulo }}"
+                >
 
-                    <article class="home-achievement-card">
-                        <div class="home-achievement-card__image">
-                            <img src="{% static 'img/home/drones-ifsc.png' %}" alt="">
-                        </div>
+            </div>
 
-                        <div>
-                            <h3>1º lugar — Drones IFSC 2023</h3>
+            <div>
 
-                            <p>
-                                Equipe Drones Guanambi conquista o topo em
-                                Florianópolis-SC
-                            </p>
+                <h3>
+                    {{ conquista.titulo }}
+                </h3>
 
-                            <span>2023</span>
-                        </div>
-                    </article>
+                <p>
+                    {{ conquista.resumo }}
+                </p>
 
-                    <article class="home-achievement-card">
-                        <div class="home-achievement-card__image">
-                            <img src="{% static 'img/home/educa-drones.png' %}" alt="">
-                        </div>
+                <span>
+                    {{ conquista.data_publicacao|date:"Y" }}
+                </span>
 
-                        <div>
-                            <h3>X publicações científicas</h3>
+            </div>
 
-                            <p>
-                                Em congressos nacionais e internacionais —
-                                incluindo Bristol, UK
-                            </p>
+        </article>
 
-                            <span>2023 — 2026</span>
-                        </div>
-                    </article>
+    {% empty %}
 
-                    <article class="home-achievement-card">
-                        <div class="home-achievement-card__image">
-                            <img src="{% static 'img/home/tenda-ciencia.png' %}" alt="">
-                        </div>
+        <p>
+            Nenhuma conquista selecionada.
+        </p>
 
-                        <div>
-                            <h3>Prêmio de Divulgação Científica</h3>
+    {% endfor %}
 
-                            <p>
-                                Tenda da Ciência 2025 · Trabalho "Drone Colibri:
-                                Kit para Robótica Educacional"
-                            </p>
-
-                            <span>2025</span>
-                        </div>
-                    </article>
-
-                </div>
+</div>
 
                 <article class="home-cros-card">
 
@@ -450,7 +421,7 @@
 
             </div>
 
-            <a href="#" class="home-text-link">
+            <a href="#" class="home-text-link" style="color: #002f67">
                 Ver todos →
             </a>
 
@@ -458,85 +429,48 @@
 
         <div class="home-news__grid">
 
-            <article class="home-news-card">
+            {% for noticia in noticias %}
 
-                <div class="home-image-placeholder home-image-placeholder--news">
-                    <span>IMAGEM DA NOTÍCIA</span>
-                </div>
+                <article class="home-news-card">
 
-                <div class="home-news-card__content">
+                    <div class="home-image-placeholder home-image-placeholder--news">
 
-                    <div>
-                        <span>Evento</span>
-                        <time>03 Mai. 2026</time>
+                        <img
+                            src="{{ noticia.imagem.url }}"
+                            alt="{{ noticia.titulo }}"
+                        >
+
                     </div>
 
-                    <h3>
-                        CROS 2026: Educa Drones participa da 2ª Brazilian
-                        Conference on Robotics
-                    </h3>
+                    <div class="home-news-card__content">
 
-                    <p>
-                        Na segunda edição da Brazilian Conference on Robotics,
-                        sediada em João Pessoa, o projeto apresentou novos avanços.
-                    </p>
+                        <div>
+                            <span>{{ noticia.categoria }}</span>
 
-                </div>
+                            <time>
+                                {{ noticia.data_publicacao|date:"d/m/Y" }}
+                            </time>
+                        </div>
 
-            </article>
+                        <h3>
+                            {{ noticia.titulo }}
+                        </h3>
 
-            <article class="home-news-card">
+                        <p>
+                            {{ noticia.resumo }}
+                        </p>
 
-                <div class="home-image-placeholder home-image-placeholder--news">
-                    <span>IMAGEM DA NOTÍCIA</span>
-                </div>
-
-                <div class="home-news-card__content">
-
-                    <div>
-                        <span>Internacional</span>
-                        <time>05 Mai. 2025</time>
                     </div>
 
-                    <h3>
-                        IMAV 2024: Participação na International Micro Air
-                        Vehicle Conference and Competition
-                    </h3>
+                </article>
 
-                    <p>
-                        Alunos do IF Baiano participaram de uma das principais
-                        conferências e competições de drones do mundo.
-                    </p>
+            {% empty %}
 
-                </div>
+                <p>
+                    Nenhuma notícia em destaque no momento.
+                </p>
 
-            </article>
-
-            <article class="home-news-card">
-
-                <div class="home-image-placeholder home-image-placeholder--news">
-                    <span>IMAGEM DA NOTÍCIA</span>
-                </div>
-
-                <div class="home-news-card__content">
-
-                    <div>
-                        <span>Competição</span>
-                        <time>12 Dez. 2025</time>
-                    </div>
-
-                    <h3>
-                        OBaDrones: 1ª Olimpíada Baiana de Drones
-                    </h3>
-
-                    <p>
-                        Confira as novidades sobre a competição criada pelo
-                        Educa Drones.
-                    </p>
-
-                </div>
-
-            </article>
+            {% endfor %}
 
         </div>
 

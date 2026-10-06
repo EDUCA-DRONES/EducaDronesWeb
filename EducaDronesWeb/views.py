@@ -28,3 +28,14 @@ def sobre(request):
 
 def integrantes(request):
     return render(request, 'integrantes/nossotime.html')
+
+def noticias(request):
+    noticias = Noticia.objects.filter(destaque_home=True)
+
+    return render(
+        request,
+        'Noticias/noticias.html',
+        {
+            'noticias': noticias,
+        }
+    )

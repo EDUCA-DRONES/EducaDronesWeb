@@ -1,651 +1,402 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
 
 {% load static %}
 
-{% block title %}Educa Drones{% endblock %}
+{% block title %}
+  Educa Drones
+{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 {% endblock %}
 
 {% block content %}
-
-<section class="home-hero">
+  <section class="home-hero">
     <div class="home-hero__overlay"></div>
 
     <div class="home-container home-hero__content">
+      <div class="home-hero__text">
+        <span class="home-eyebrow">IF Baiano - Campus Guanambi · CETEIA</span>
 
-        <div class="home-hero__text">
+        <h1>
+          Monte. Programe.<br />
+          Voe. Aprenda.
+        </h1>
 
-            <span class="home-eyebrow">
-                IF Baiano - Campus Guanambi · CETEIA
-            </span>
+        <p>O Educa Drones leva robótica aérea para escolas e institutos federais — transformando conceitos de física, matemática e tecnologia em experiência real, dentro e fora da sala de aula.</p>
 
-            <h1>
-                Monte. Programe.<br>
-                Voe. Aprenda.
-            </h1>
+        <div class="home-actions">
+          <a href="#participar" class="home-button home-button--primary">Leve o projeto à sua escola</a>
 
-            <p>
-                O Educa Drones leva robótica aérea para escolas e institutos
-                federais — transformando conceitos de física, matemática e
-                tecnologia em experiência real, dentro e fora da sala de aula.
-            </p>
-
-            <div class="home-actions">
-
-                <a href="#participar" class="home-button home-button--primary">
-                    Leve o projeto à sua escola
-                </a>
-
-                <a href="#obadrones" class="home-button home-button--secondary">
-                    Conhecer a ObaDrones
-                </a>
-
-            </div>
-
+          <a href="#obadrones" class="home-button home-button--secondary">Conhecer a ObaDrones</a>
         </div>
-
+      </div>
     </div>
-</section>
+  </section>
 
-<section class="home-stats">
+  <section class="home-stats">
     <div class="home-container home-stats__grid">
-        <div class="home-stat">
-            <strong>5</strong>
-            <span>Equipes ativas<br>BA e PE</span>
-        </div>
+      <div class="home-stat">
+        <strong>5</strong>
+        <span>Equipes ativas<br />BA e PE</span>
+      </div>
 
-        <div class="home-stat">
-            <strong>8</strong>
-            <span>Publicações científicas<br>Incluindo evento internacional</span>
-        </div>
+      <div class="home-stat">
+        <strong>8</strong>
+        <span>Publicações científicas<br />Incluindo evento internacional</span>
+      </div>
 
-        <div class="home-stat">
-            <strong>1ª</strong>
-            <span>Olimpíada Baiana de Drones<br>Apoio FAPESB · Agosto 2025</span>
-        </div>
+      <div class="home-stat">
+        <strong>1ª</strong>
+        <span>Olimpíada Baiana de Drones<br />Apoio FAPESB · Agosto 2025</span>
+      </div>
     </div>
-</section>
+  </section>
 
-<section class="home-section home-story">
+  <section class="home-section home-story">
     <div class="home-container home-two-columns">
+      <div>
+        <span class="home-section-label">EDUCAÇÃO VIVA!</span>
 
-        <div>
-            <span class="home-section-label">EDUCAÇÃO VIVA!</span>
+        <h2>Drones como ponte para o conhecimento</h2>
 
-            <h2>Drones como ponte para o conhecimento</h2>
+        <p>O Educa Drones nasceu no IF Baiano Campus Guanambi, da paixão do Prof. Dr. Leandro dos Santos por aeromodelos e da convicção de que a tecnologia pode ser a melhor ferramenta de aprendizado. Desde 2013, drones já eram usados em sala de aula. Em 2023, o projeto ganhou forma e nome.</p>
 
-            <p>
-                O Educa Drones nasceu no IF Baiano Campus Guanambi, da paixão
-                do Prof. Dr. Leandro dos Santos por aeromodelos e da convicção
-                de que a tecnologia pode ser a melhor ferramenta de aprendizado.
-                Desde 2013, drones já eram usados em sala de aula. Em 2023,
-                o projeto ganhou forma e nome.
-            </p>
+        <p>Através da metodologia STEAM, alunos do ensino médio constroem e pilotam drones, aplicando conceitos reais de física, engenharia e programação. Mais do que aprender: eles criam, competem e inspiram outros a seguir carreiras em ciências exatas.</p>
 
-            <p>
-                Através da metodologia STEAM, alunos do ensino médio constroem
-                e pilotam drones, aplicando conceitos reais de física, engenharia
-                e programação. Mais do que aprender: eles criam, competem e
-                inspiram outros a seguir carreiras em ciências exatas.
-            </p>
-
-            <div class="home-inline-links">
-                <a href="{% url 'sobre' %}">Nossa história</a>
-            </div>
+        <div class="home-inline-links">
+          <a href="{% url 'sobre' %}">Nossa história</a>
         </div>
+      </div>
 
-        <img src="{% static 'img/home/nossa-historia.png' %}" alt="" class="image2">
-        
-
+      <img src="{% static 'img/home/nossa-historia.png' %}" alt="" class="image2" />
     </div>
-</section>
+  </section>
 
   <!-- ===== SEÇÃO: COMO TER O PROJETO NA SUA ESCOLA ===== -->
   <section class="participacao" id="participacao">
     <div class="container">
- 
       <header class="participacao__header">
         <span class="eyebrow">Participação</span>
         <h2 class="title2">Como ter o projeto<br />na <em>sua escola</em></h2>
-        <p class="lead">
-          Em quatro etapas, sua escola forma uma equipe competitiva — sem precisar de
-          equipamentos caros ou infraestrutura especial.
-        </p>
+        <p class="lead">Em quatro etapas, sua escola forma uma equipe competitiva — sem precisar de equipamentos caros ou infraestrutura especial.</p>
       </header>
- 
+
       <ol class="steps2">
         <li class="step">
           <span class="step__circle" aria-hidden="true">1</span>
           <span class="step__label">Passo 1</span>
           <h3 class="step__title">Entre em contato</h3>
-          <p class="step__text">
-            Seu IF ou escola demonstra interesse. Nossa equipe entra em contato para
-            apresentar o projeto e alinhar expectativas.
-          </p>
+          <p class="step__text">Seu IF ou escola demonstra interesse. Nossa equipe entra em contato para apresentar o projeto e alinhar expectativas.</p>
         </li>
- 
+
         <li class="step">
           <span class="step__circle" aria-hidden="true">2</span>
           <span class="step__label">Passo 2</span>
           <h3 class="step__title">Treinamento estruturado</h3>
-          <p class="step__text">
-            O Programa de Treinamento Educa Drones capacita alunos e professores — do
-            zero até a operação e construção de drones.
-          </p>
+          <p class="step__text">O Programa de Treinamento Educa Drones capacita alunos e professores — do zero até a operação e construção de drones.</p>
         </li>
- 
+
         <li class="step">
           <span class="step__circle" aria-hidden="true">3</span>
           <span class="step__label">Passo 3</span>
           <h3 class="step__title">Equipe formada</h3>
-          <p class="step__text">
-            Sua escola tem uma equipe de robótica aérea com identidade própria — pronta
-            para aprender, criar e competir.
-          </p>
+          <p class="step__text">Sua escola tem uma equipe de robótica aérea com identidade própria — pronta para aprender, criar e competir.</p>
         </li>
- 
+
         <li class="step">
           <span class="step__circle" aria-hidden="true">4</span>
           <span class="step__label">Passo 4</span>
           <h3 class="step__title">Competições</h3>
-          <p class="step__text">
-            Sua equipe tem um objetivo concreto: participar da Olimpíada Baiana de
-            Drones e medir forças com equipes de toda a Bahia.
-          </p>
+          <p class="step__text">Sua equipe tem um objetivo concreto: participar da Olimpíada Baiana de Drones e medir forças com equipes de toda a Bahia.</p>
         </li>
       </ol>
- 
     </div>
   </section>
- 
 
-<section class="home-section home-achievements">
-
+  <section class="home-section home-achievements">
     <div class="home-container">
+      <div class="home-section-heading home-achievements__heading">
+        <span class="home-section-label">Histórico</span>
 
-        <div class="home-section-heading home-achievements__heading">
-            <span class="home-section-label">Histórico</span>
+        <h2>Conquistas que falam por <em>Si</em></h2>
+      </div>
 
-            <h2>
-                Conquistas que falam por <em>Si</em>
-            </h2>
-        </div>
-
-        <div class="home-achievements__layout">
-
-            <div class="home-achievements__left">
-
-                <div class="home-achievements__cards">
-
-    {% for conquista in conquistas %}
-
-        <article class="home-achievement-card">
-
-            <div class="home-achievement-card__image">
-
-                <img
-                    src="{{ conquista.imagem.url }}"
-                    alt="{{ conquista.titulo }}"
-                >
-
-            </div>
-
-            <div>
-
-                <h3>
-                    {{ conquista.titulo }}
-                </h3>
-
-                <p>
-                    {{ conquista.resumo }}
-                </p>
-
-                <span>
-                    {{ conquista.data_publicacao|date:"Y" }}
-                </span>
-
-            </div>
-
-        </article>
-
-    {% empty %}
-
-        <p>
-            Nenhuma conquista selecionada.
-        </p>
-
-    {% endfor %}
-
-</div>
-
-                <article class="home-cros-card">
-
-                    <div class="home-cros-card__text">
-
-                        <h3>
-                            Participação na 1ª e 2ª Brazilian Conference on Robotics (CROS)
-                        </h3>
-
-                        <span>2025 e 2026</span>
-
-                        <p>
-                            O Educa Drones marcou presença nas duas primeiras
-                            edições da Brazilian Conference on Robotics (CROS),
-                            o principal congresso de robótica do Brasil,
-                            promovido pela Sociedade Brasileira de Robótica.
-                        </p>
-
-                        <p>
-                            Em 2025, na edição inaugural realizada em Belo
-                            Horizonte-MG, o projeto apresentou o trabalho
-                            "Development of Drones and Their Integration into
-                            Educational Robotics" — consolidando sua presença
-                            na pesquisa científica nacional em robótica educacional.
-                        </p>
-
-                        <p>
-                            Em 2026, na segunda edição sediada em João Pessoa-PB,
-                            o Educa Drones volta a apresentar novos avanços com
-                            o trabalho "Seed Dispenser for Reforestation with Drones".
-                        </p>
-
-                        <div class="home-cros-card__logos">
-                            <img src="{% static 'img/home/cros-2025.png' %}" alt="CROS 2025">
-                            <img src="{% static 'img/home/cros-2026.png' %}" alt="CROS 2026">
-                        </div>
-
-                    </div>
-
-                    <div class="home-cros-card__image">
-                        <img src="{% static 'img/home/cros.jpg' %}" alt="Participação na CROS">
-                    </div>
-
-                </article>
-
-            </div>
-
-            <div class="home-achievements__right">
-
-                <article class="home-imav-card">
-
-                    <span class="home-imav-card__label">
-                        DESTAQUE INTERNACIONAL
-                    </span>
-
-                    <h3>
-                        Do sertão baiano<br>
-                        à <em>Inglaterra</em>
-                    </h3>
-
-                    <p>
-                        Em 2024, alunos do ensino médio e superior do IF Baiano
-                        participaram do XV International Micro Air Vehicle
-                        Conference and Competition em Bristol, Inglaterra —
-                        um dos maiores eventos de drones do mundo.
-                    </p>
-
-                    <img
-                        src="{% static 'img/home/imav.jpg' %}"
-                        alt="Equipe Educa Drones no IMAV"
-                    >
-
-                    <div class="home-imav-card__stats">
-
-                        <div>
-                            <strong>XV</strong>
-                            <span>Edição do IMAV</span>
-                        </div>
-
-                        <div>
-                            <strong>🇬🇧</strong>
-                            <span>Bristol UK</span>
-                        </div>
-
-                        <div>
-                            <strong>2024</strong>
-                            <span>Ano</span>
-                        </div>
-
-                    </div>
-
-                </article>
-
-                <div class="home-support-card">
-
-                    <span>APOIO INSTITUCIONAL</span>
-
-                    <div>
-                        <strong>▦</strong>
-                        <p>IF Baiano — <em>campus Guanambi</em></p>
-                    </div>
-
-                    <div>
-                        <strong>◉</strong>
-                        <p>CNPQ — Bolsa de IC Júnior</p>
-                    </div>
-
-                    <div>
-                        <strong>◈</strong>
-                        <p>FAPESB — Edital Popciências</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section id="obadrones" class="home-section home-obadrones">
-
-    <div class="home-container home-two-columns">
-
-        <div>
-
-            <span class="home-section-label">
-                EVENTO CRIADO PELO EDUCA DRONES
-            </span>
-
-            <h2>
-                A maior competição<br>
-                de drones da Bahia
-            </h2>
-
-            <p>
-                A OBaDrones foi criada pelo Educa Drones para reunir equipes
-                de robótica aérea de todo o Brasil. Mais do que uma competição,
-                é um festival de tecnologia, com oficinas, palestras e troca
-                de experiências.
-            </p>
-
-            <div class="home-obadrones__items">
-
-                <div>
-                    <strong>Provas Técnicas</strong>
-                    <span>
-                        Problemas do mundo real. Soluções criadas pelos alunos.
-                    </span>
+      <div class="home-achievements__layout">
+        <div class="home-achievements__left">
+          <div class="home-achievements__cards">
+            {% for conquista in conquistas %}
+              <article class="home-achievement-card">
+                <div class="home-achievement-card__image">
+                  <img src="{{ conquista.imagem.url }}" alt="{{ conquista.titulo }}" />
                 </div>
 
                 <div>
-                    <strong>Oficinas e workshops</strong>
-                    <span>
-                        Atividades práticas conduzidas por especialistas em drones.
-                    </span>
+                  <h3>{{ conquista.titulo }}</h3>
+
+                  <p>{{ conquista.resumo }}</p>
+
+                  <span>{{ conquista.data_publicacao|date:'Y' }}</span>
                 </div>
-
-                <div>
-                    <strong>Sediada pelo IF Baiano</strong>
-                    <span>
-                        Aprovada no edital Popciências da FAPESB.
-                    </span>
-                </div>
-
-            </div>
-
-            <a href="#" class="home-button home-button--primary3">
-                Saiba mais sobre a OBaDrones
-            </a>
-
-        </div>
-
-        
-            <img src="{% static 'img/home/oba-drones.png' %}"
-                alt="Oba Drones"
-                class="oba-drones"
-            >
-        
-
-    </div>
-
-</section>
-
-<section class="home-section home-news">
-
-    <div class="home-container">
-
-        <div class="home-section-heading home-section-heading--row">
-
-            <div>
-
-                <span class="home-section-label">
-                    EM DESTAQUE
-                </span>
-
-                <h2>Notícias e Eventos</h2>
-
-            </div>
-
-            <a href="#" class="home-text-link" style="color: #002f67">
-                Ver todos →
-            </a>
-
-        </div>
-
-        <div class="home-news__grid">
-
-            {% for noticia in noticias %}
-
-                <article class="home-news-card">
-
-                    <div class="home-image-placeholder home-image-placeholder--news">
-
-                        <img
-                            src="{{ noticia.imagem.url }}"
-                            alt="{{ noticia.titulo }}"
-                        >
-
-                    </div>
-
-                    <div class="home-news-card__content">
-
-                        <div>
-                            <span>{{ noticia.categoria }}</span>
-
-                            <time>
-                                {{ noticia.data_publicacao|date:"d/m/Y" }}
-                            </time>
-                        </div>
-
-                        <h3>
-                            {{ noticia.titulo }}
-                        </h3>
-
-                        <p>
-                            {{ noticia.resumo }}
-                        </p>
-
-                    </div>
-
-                </article>
-
+              </article>
             {% empty %}
-
-                <p>
-                    Nenhuma notícia em destaque no momento.
-                </p>
-
+              <p>Nenhuma conquista selecionada.</p>
             {% endfor %}
+          </div>
 
-        </div>
+          <article class="home-cros-card">
+            <div class="home-cros-card__text">
+              <h3>Participação na 1ª e 2ª Brazilian Conference on Robotics (CROS)</h3>
 
-    </div>
+              <span>2025 e 2026</span>
 
-</section>
+              <p>O Educa Drones marcou presença nas duas primeiras edições da Brazilian Conference on Robotics (CROS), o principal congresso de robótica do Brasil, promovido pela Sociedade Brasileira de Robótica.</p>
 
-<section class="home-section home-colibri">
+              <p>Em 2025, na edição inaugural realizada em Belo Horizonte-MG, o projeto apresentou o trabalho "Development of Drones and Their Integration into Educational Robotics" — consolidando sua presença na pesquisa científica nacional em robótica educacional.</p>
 
-    <div class="home-container home-two-columns home-two-columns--reverse">
+              <p>Em 2026, na segunda edição sediada em João Pessoa-PB, o Educa Drones volta a apresentar novos avanços com o trabalho "Seed Dispenser for Reforestation with Drones".</p>
 
-        <div>
-
-            <span class="home-section-label2">
-                DRONES EDUCACIONAIS
-            </span>
-
-            <h2>Linha <em>COLIBRI</em></h2>
-
-            <p>
-                Desenvolvido internamente pelo projeto, o Colibri é um drone
-                projetado especificamente para o uso educacional e para competições
-                estudantis. Impresso em 3D, adaptável e com ecossistema totalmente aberto.
-            </p>
-
-            <div class="home-colibri__features">
-
-                <div>
-                    <strong>Impressão 3D</strong>
-                    <span>
-                        Peças ilimitadas e reposição facilitada.
-                    </span>
-                </div>
-
-                <div>
-                    <strong>Ecossistema aberto</strong>
-                    <span>
-                        Guincho, câmera, dispensador de sementes e outros periféricos.
-                    </span>
-                </div>
-
-                <div>
-                    <strong>Plataforma de pesquisa</strong>
-                    <span>
-                        Base para projetos publicados em congressos.
-                    </span>
-                </div>
-
+              <div class="home-cros-card__logos">
+                <img src="{% static 'img/home/cros-2025.png' %}" alt="CROS 2025" />
+                <img src="{% static 'img/home/cros-2026.png' %}" alt="CROS 2026" />
+              </div>
             </div>
 
-            <p class="home-note">
-                O Colibri não é requisito para participar do projeto. Kits comerciais
-                mais acessíveis são totalmente compatíveis com o Programa de Treinamento.
-            </p>
-
-            <a href="#" class="home-button home-button--primary3">
-                Veja todos os modelos →
-            </a>
-
+            <div class="home-cros-card__image">
+              <img src="{% static 'img/home/cros.jpg' %}" alt="Participação na CROS" />
+            </div>
+          </article>
         </div>
 
-        <div class="home-image-placeholder home-image-placeholder--colibri">
-            <span>IMAGEM DO COLIBRI</span>
-            <small>Substituir pela foto/render do drone</small>
-        </div>
+        <div class="home-achievements__right">
+          <article class="home-imav-card">
+            <span class="home-imav-card__label">DESTAQUE INTERNACIONAL</span>
 
+            <h3>
+              Do sertão baiano<br />
+              à <em>Inglaterra</em>
+            </h3>
+
+            <p>Em 2024, alunos do ensino médio e superior do IF Baiano participaram do XV International Micro Air Vehicle Conference and Competition em Bristol, Inglaterra — um dos maiores eventos de drones do mundo.</p>
+
+            <img src="{% static 'img/home/imav.jpg' %}" alt="Equipe Educa Drones no IMAV" />
+
+            <div class="home-imav-card__stats">
+              <div>
+                <strong>XV</strong>
+                <span>Edição do IMAV</span>
+              </div>
+
+              <div>
+                <strong>🇬🇧</strong>
+                <span>Bristol UK</span>
+              </div>
+
+              <div>
+                <strong>2024</strong>
+                <span>Ano</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="home-support-card">
+            <span>APOIO INSTITUCIONAL</span>
+
+            <div>
+              <strong>▦</strong>
+              <p>
+                IF Baiano — <em>campus Guanambi</em>
+              </p>
+            </div>
+
+            <div>
+              <strong>◉</strong>
+              <p>CNPQ — Bolsa de IC Júnior</p>
+            </div>
+
+            <div>
+              <strong>◈</strong>
+              <p>FAPESB — Edital Popciências</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-</section>
+  <section id="obadrones" class="home-section home-obadrones">
+    <div class="home-container home-two-columns">
+      <div>
+        <span class="home-section-label">EVENTO CRIADO PELO EDUCA DRONES</span>
 
-<section class="home-section home-faq">
+        <h2>
+          A maior competição<br />
+          de drones da Bahia
+        </h2>
 
-    <div class="home-container home-faq__layout">
+        <p>A OBaDrones foi criada pelo Educa Drones para reunir equipes de robótica aérea de todo o Brasil. Mais do que uma competição, é um festival de tecnologia, com oficinas, palestras e troca de experiências.</p>
 
+        <div class="home-obadrones__items">
+          <div>
+            <strong>Provas Técnicas</strong>
+            <span>Problemas do mundo real. Soluções criadas pelos alunos.</span>
+          </div>
+
+          <div>
+            <strong>Oficinas e workshops</strong>
+            <span>Atividades práticas conduzidas por especialistas em drones.</span>
+          </div>
+
+          <div>
+            <strong>Sediada pelo IF Baiano</strong>
+            <span>Aprovada no edital Popciências da FAPESB.</span>
+          </div>
+        </div>
+
+        <a href="#" class="home-button home-button--primary3">Saiba mais sobre a OBaDrones</a>
+      </div>
+
+      <img src="{% static 'img/home/oba-drones.png' %}" alt="Oba Drones" class="oba-drones" />
+    </div>
+  </section>
+
+  <section class="home-section home-news">
+    <div class="home-container">
+      <div class="home-section-heading home-section-heading--row">
         <div>
+          <span class="home-section-label">EM DESTAQUE</span>
 
-            <span class="home-section-label">
-                FAQ
-            </span>
-
-            <h2>
-                Dúvidas<br>
-                frequentes
-            </h2>
-
-            <p>
-                Respostas diretas para as perguntas que gestores e professores
-                mais fazem antes de aderir ao projeto.
-            </p>
-
-            <a href="#participar" class="home-button home-button--primary">
-                Falar com a equipe
-            </a>
-
+          <h2>Notícias e Eventos</h2>
         </div>
 
-        <div class="home-faq__list">
+        <a href="#" class="home-text-link" style="color: #002f67">Ver todos →</a>
+      </div>
 
-            <details>
-                <summary>
-                    Preciso de laboratório ou equipamento especial?
-                </summary>
+      <div class="home-news__grid">
+        {% for noticia in noticias %}
+          <article class="home-news-card">
+            <div class="home-image-placeholder home-image-placeholder--news">
+              <img src="{{ noticia.imagem.url }}" alt="{{ noticia.titulo }}" />
+            </div>
 
-                <p>
-                    O projeto foi pensado para funcionar sem infraestrutura especial.
-                </p>
-            </details>
+            <div class="home-news-card__content">
+              <div>
+                <span>{{ noticia.categoria }}</span>
 
-            <details>
-                <summary>
-                    Quanto tempo leva para formar uma equipe na minha escola?
-                </summary>
+                <time>{{ noticia.data_publicacao|date:'d/m/Y' }}</time>
+              </div>
 
-                <p>
-                    O tempo depende da organização da escola e do treinamento.
-                </p>
-            </details>
+              <h3>{{ noticia.titulo }}</h3>
 
-            <details>
-                <summary>
-                    O projeto é exclusivo para Institutos Federais?
-                </summary>
-
-                <p>
-                    Não. Entre em contato com a equipe para conhecer as possibilidades.
-                </p>
-            </details>
-
-            <details>
-                <summary>
-                    Os alunos precisam de conhecimento prévio em tecnologia?
-                </summary>
-
-                <p>
-                    Não. O projeto é desenhado para partir do zero.
-                </p>
-            </details>
-
-            <details>
-                <summary>
-                    Minha equipe pode competir na OBaDrones no primeiro ano?
-                </summary>
-
-                <p>
-                    Converse com a equipe para entender os critérios e o planejamento.
-                </p>
-            </details>
-
-            <details>
-                <summary>
-                    O projeto tem apoio institucional e financiamento?
-                </summary>
-
-                <p>
-                    O projeto conta com apoios institucionais e editais,
-                    conforme cada iniciativa.
-                </p>
-            </details>
-
-        </div>
-
+              <p>{{ noticia.resumo }}</p>
+            </div>
+          </article>
+        {% empty %}
+          <p>Nenhuma notícia em destaque no momento.</p>
+        {% endfor %}
+      </div>
     </div>
+  </section>
 
-</section>
+  <section class="home-section home-colibri">
+    <div class="home-container home-two-columns home-two-columns--reverse">
+      <div>
+        <span class="home-section-label2">DRONES EDUCACIONAIS</span>
+
+        <h2>Linha <em>COLIBRI</em></h2>
+
+        <p>Desenvolvido internamente pelo projeto, o Colibri é um drone projetado especificamente para o uso educacional e para competições estudantis. Impresso em 3D, adaptável e com ecossistema totalmente aberto.</p>
+
+        <div class="home-colibri__features">
+          <div>
+            <strong>Impressão 3D</strong>
+            <span>Peças ilimitadas e reposição facilitada.</span>
+          </div>
+
+          <div>
+            <strong>Ecossistema aberto</strong>
+            <span>Guincho, câmera, dispensador de sementes e outros periféricos.</span>
+          </div>
+
+          <div>
+            <strong>Plataforma de pesquisa</strong>
+            <span>Base para projetos publicados em congressos.</span>
+          </div>
+        </div>
+
+        <p class="home-note">O Colibri não é requisito para participar do projeto. Kits comerciais mais acessíveis são totalmente compatíveis com o Programa de Treinamento.</p>
+
+        <a href="#" class="home-button home-button--primary3">Veja todos os modelos →</a>
+      </div>
+
+      <div class="home-image-placeholder home-image-placeholder--colibri">
+        <span>IMAGEM DO COLIBRI</span>
+        <small>Substituir pela foto/render do drone</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section home-faq">
+    <div class="home-container home-faq__layout">
+      <div>
+        <span class="home-section-label">FAQ</span>
+
+        <h2>
+          Dúvidas<br />
+          frequentes
+        </h2>
+
+        <p>Respostas diretas para as perguntas que gestores e professores mais fazem antes de aderir ao projeto.</p>
+
+        <a href="#participar" class="home-button home-button--primary">Falar com a equipe</a>
+      </div>
+
+      <div class="home-faq__list">
+        <details>
+          <summary>Preciso de laboratório ou equipamento especial?</summary>
+
+          <p>O projeto foi pensado para funcionar sem infraestrutura especial.</p>
+        </details>
+
+        <details>
+          <summary>Quanto tempo leva para formar uma equipe na minha escola?</summary>
+
+          <p>O tempo depende da organização da escola e do treinamento.</p>
+        </details>
+
+        <details>
+          <summary>O projeto é exclusivo para Institutos Federais?</summary>
+
+          <p>Não. Entre em contato com a equipe para conhecer as possibilidades.</p>
+        </details>
+
+        <details>
+          <summary>Os alunos precisam de conhecimento prévio em tecnologia?</summary>
+
+          <p>Não. O projeto é desenhado para partir do zero.</p>
+        </details>
+
+        <details>
+          <summary>Minha equipe pode competir na OBaDrones no primeiro ano?</summary>
+
+          <p>Converse com a equipe para entender os critérios e o planejamento.</p>
+        </details>
+
+        <details>
+          <summary>O projeto tem apoio institucional e financiamento?</summary>
+
+          <p>O projeto conta com apoios institucionais e editais, conforme cada iniciativa.</p>
+        </details>
+      </div>
+    </div>
+  </section>
 
   <section class="contato" id="contato">
     <div class="container contato__grid">
-
       <div class="contato__info">
         <span class="eyebrow2">PARTICIPE</span>
         <h2 class="ttle">Pronto para levar<br />o futuro à <em>sua escola?</em></h2>
-        <p class="text">
-          Entre em contato com nossa equipe. Apresentamos o projeto, alinhamos as
-          possibilidades e iniciamos o planejamento do treinamento — sem burocracia.
-        </p>
+        <p class="text">Entre em contato com nossa equipe. Apresentamos o projeto, alinhamos as possibilidades e iniciamos o planejamento do treinamento — sem burocracia.</p>
 
         <div class="steps">
           <h3 class="steps__title">O que acontece depois:</h3>
@@ -657,92 +408,90 @@
         </div>
       </div>
 
-      <form class="card form" action="#" method="post">
+      <form id="contato-form" class="card form" action="#contato-form" method="post">
+        {% csrf_token %}
         <h3 class="form__title">Quero o Educa Drones na minha escola</h3>
         <p class="form__subtitle">Preencha e entraremos em contato</p>
 
         <div class="field">
           <label for="nome">Seu nome</label>
-          <input id="nome" name="nome" type="text" placeholder="Prof. João Silva" required />
+          {{ form.nome }}
         </div>
 
         <div class="field-row">
           <div class="field">
             <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" placeholder="exemplo@email.com" required />
+            {{ form.email }}
           </div>
+
           <div class="field">
             <label for="telefone">Telefone / WhatsApp</label>
-            <input id="telefone" name="telefone" type="tel" placeholder="(77) 9 9999-9999" />
+            {{ form.telefone }}
           </div>
         </div>
 
         <div class="field">
           <label for="instituicao">Instituição</label>
-          <input id="instituicao" name="instituicao" type="text" placeholder="IF Baiano - Campus..." />
+          {{ form.instituicao }}
         </div>
 
         <div class="field">
           <label for="cidade">Cidade / Estado</label>
-          <input id="cidade" name="cidade" type="text" placeholder="Guanambi, BA" />
+          {{ form.cidade }}
         </div>
 
         <button type="submit" class="btn btn--primary">
-          Enviar solicitação
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          Enviar solicitação<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
         </button>
 
         <p class="form__note">
-          Ou fale direto pelo <strong>e-mail</strong> ou <strong>whatsApp</strong> — respondemos em até 2 dias úteis.
+          Ou fale direto pelo <strong><a href="mailto:educadrones.contato@gmail.com">e-mail</a></strong> ou <strong><a href="https://wa.me/5577999003963?text=Quero%20Trazer%20o%20Projeto%20Educa%20Drones%20para%20nosso%20projeto">whatsApp</a></strong> — respondemos em até 2 dias úteis.
         </p>
       </form>
-
     </div>
   </section>
 
   <!-- ===== SEÇÃO 2: ONDE ESTAMOS ===== -->
   <section class="local" id="onde-estamos">
     <div class="container local__grid">
-
       <div class="local__map">
-        <iframe
-          title="Mapa - Instituto Federal Baiano Campus Guanambi"
-          src="https://www.google.com/maps?q=Instituto+Federal+Baiano+Campus+Guanambi&t=k&z=16&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen></iframe>
+        <iframe title="Mapa - Instituto Federal Baiano Campus Guanambi" src="https://www.google.com/maps?q=Instituto+Federal+Baiano+Campus+Guanambi&t=k&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
 
       <div class="local__info">
         <span class="eyebrow2">Localização</span>
         <h2 class="title title--lg">Onde Estamos</h2>
         <p class="text">
-          O Educa Drones opera no Centro de Estudos Tecnológicos em Informática e
-          Agronomia (CETEIA) do Instituto Federal Baiano - <em>campus</em> Guanambi
+          O Educa Drones opera no Centro de Estudos Tecnológicos em Informática e Agronomia (CETEIA) do Instituto Federal Baiano - <em>campus</em> Guanambi
         </p>
 
         <ul class="card contact-list">
           <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg>
             <span>Caixa Postal Nº 08 Distrito de, Saída p/ ceraíma - n, Zona Rural, Guanambi - BA, 46430-000</span>
           </li>
           <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m3 7 9 6 9-6" />
+            </svg>
             <a href="mailto:contato.educadrones@gmail.com">contato.educadrones@gmail.com</a>
           </li>
           <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12Z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12Z" />
+            </svg>
             <a href="https://wa.me/5577999999999">(77) 99999-9999</a>
           </li>
         </ul>
 
-        <a class="btn btn--primary" target="_blank" rel="noopener"
-           href="https://www.google.com/maps/search/?api=1&query=Instituto+Federal+Baiano+Campus+Guanambi">
-          Abrir no mapa
-        </a>
+        <a class="btn btn--primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Instituto+Federal+Baiano+Campus+Guanambi">Abrir no mapa</a>
       </div>
-
     </div>
   </section>
-
 {% endblock %}

@@ -133,7 +133,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
-DEFAULT_FROM_EMAIL = f'Gabriel Montalvão Santos <{environ.get("EMAIL")}>'
+DEFAULT_FROM_EMAIL = f'Educa Drones <{environ.get("EMAIL")}>'
 
 MAILERS = {
     'default': {

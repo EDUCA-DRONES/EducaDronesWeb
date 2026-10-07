@@ -12,13 +12,9 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 
 from pathlib import Path
 from os import environ
-from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-# Carrega as variáveis do .env para o a função environ.get() funcionar corretamente
-load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
@@ -28,6 +24,12 @@ SECRET_KEY = 'django-insecure-@_ux!=1+rcgleyo#%8qc#p#fsrc!969(b2-p!l+i28@5muz3qn
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+
+if DEBUG:
+    from dotenv import load_dotenv
+    # Carrega as variáveis do .env para o a função environ.get() funcionar corretamente
+    load_dotenv(BASE_DIR / '.env')
 
 ALLOWED_HOSTS = []
 

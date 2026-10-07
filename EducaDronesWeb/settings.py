@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 from pathlib import Path
+from os import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
@@ -24,6 +24,12 @@ SECRET_KEY = 'django-insecure-@_ux!=1+rcgleyo#%8qc#p#fsrc!969(b2-p!l+i28@5muz3qn
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+
+if DEBUG:
+    from dotenv import load_dotenv
+    # Carrega as variáveis do .env para o a função environ.get() funcionar corretamente
+    load_dotenv(BASE_DIR / '.env')
 
 ALLOWED_HOSTS = []
 
@@ -103,13 +109,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
 USE_TZ = True
+
+# Habilita a formatação localizada de números, datas e horários
+USE_L10N = True
 
 
 # Static files (CSS, JavaScript, Images)
@@ -124,8 +133,18 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
+DEFAULT_FROM_EMAIL = f'Gabriel Montalvão Santos <{environ.get("EMAIL")}>'
+
 MAILERS = {
     'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+        # Trocamos 'console' por 'smtp'
+        'BACKEND': 'django.core.mail.backends.smtp.EmailBackend',
+        'OPTIONS': {
+            'host': 'smtp.gmail.com',  # Servidor do Gmail
+            'port': 587,               # Porta padrão de segurança
+            'use_tls': True,           # Ativa a criptografia
+            'username': environ.get('EMAIL'),  # Seu e-mail
+            'password': f"{environ.get('EMAIL_CREDENTIALS')}",
+        },
     },
 }

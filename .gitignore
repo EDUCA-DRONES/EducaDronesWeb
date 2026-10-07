@@ -90,3 +90,6 @@ db.sqlite3
 
 # Pyenv
 .python-version
+
+# Vscode 
+.vscode/

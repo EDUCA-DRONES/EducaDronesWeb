@@ -2,12 +2,135 @@
 
 {% load static %}
 
+{% block title %}Nossa Equipe | Educa Drones{% endblock %}
+
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nossotime.css' %}">
 {% endblock %}
 
 {% block content %}
+    <section class="team-hero">
+        <div class="team-container">
+            <h1>Nossa Equipe</h1>
+            <p>Conheça as pessoas que fazem o Educa Drones acontecer.</p>
+        </div>
+    </section>
 
-<h1>Nosso Time Educa Drones</h1>
+    <div class="team-page">
+        <section class="team-section" aria-labelledby="researchers-title">
+            <div class="team-container">
+                <h2 id="researchers-title">Pesquisadores</h2>
+
+                <div class="team-grid team-grid--researchers">
+                    <article class="member-card">
+                        <div class="member-card__photo">
+                            <img src="/media/integrantes/leandro-dos-santos.jpg" alt="Professor Leandro dos Santos" loading="lazy">
+                        </div>
+                        <h3>Leandro dos Santos</h3>
+                        <p>Professor e pesquisador</p>
+                        {% include "components/member_socials.html" with member_name="Leandro dos Santos" instagram_url="#" linkedin_url="#" %}
+                    </article>
+
+                    <article class="member-card">
+                        <div class="member-card__photo">
+                            <img src="/media/integrantes/fabio-lima.jpg" alt="Professor Fábio Lima" loading="lazy">
+                        </div>
+                        <h3>Fábio Lima</h3>
+                        <p>Professor e pesquisador</p>
+                        {% include "components/member_socials.html" with member_name="Fábio Lima" instagram_url="#" linkedin_url="#" %}
+                    </article>
+
+                    <article class="member-card">
+                        <div class="member-card__photo">
+                            <img src="/media/integrantes/reinaldo-cotrim.jpg" alt="Professor Reinaldo Cotrim" loading="lazy">
+                        </div>
+                        <h3>Reinaldo Cotrim</h3>
+                        <p>Professor e pesquisador</p>
+                        {% include "components/member_socials.html" with member_name="Reinaldo Cotrim" instagram_url="#" linkedin_url="#" %}
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section team-section--students" aria-labelledby="students-title">
+            <div class="team-container">
+                <h2 id="students-title">Alunos e Egressos</h2>
+
+                <div class="team-grid team-grid--students">
+                    <article class="member-card">
+                        <div class="member-card__photo">
+                            <img src="/media/integrantes/aluno-01.jpg" alt="Gustavo da Silva Nascimento Costa" loading="lazy">
+                        </div>
+                        <h3>Gustavo da Silva Nascimento Costa</h3>
+                        <p>Técnico em Informática para a Internet</p>
+                        {% include "components/member_socials.html" with member_name="Gustavo da Silva Nascimento Costa" instagram_url="#" linkedin_url="#" %}
+                    </article>
+
+                    <article class="member-card">
+                        <div class="member-card__photo">
+                            <img src="/media/integrantes/aluno-02.jpg" alt="Integrante do Educa Drones" loading="lazy">
+                        </div>
+                        <h3>Nome do integrante</h3>
+                        <p>Curso ou função no projeto</p>
+                        {% include "components/member_socials.html" with member_name="Integrante do Educa Drones" instagram_url="#" linkedin_url="#" %}
+                    </article>
+
+                    <article class="member-card">
+                        <div class="member-card__photo">
+                            <img src="/media/integrantes/aluno-03.jpg" alt="Integrante do Educa Drones" loading="lazy">
+                        </div>
+                        <h3>Nome do integrante</h3>
+                        <p>Curso ou função no projeto</p>
+                        {% include "components/member_socials.html" with member_name="Integrante do Educa Drones" instagram_url="#" linkedin_url="#" %}
+                    </article>
+
+                    <article class="member-card">
+                        <div class="member-card__photo">
+                            <img src="/media/integrantes/aluno-04.jpg" alt="Integrante do Educa Drones" loading="lazy">
+                        </div>
+                        <h3>Nome do integrante</h3>
+                        <p>Curso ou função no projeto</p>
+                        {% include "components/member_socials.html" with member_name="Integrante do Educa Drones" instagram_url="#" linkedin_url="#" %}
+                    </article>
+
+                    <article class="member-card">
+                        <div class="member-card__photo">
+                            <img src="/media/integrantes/aluno-05.jpg" alt="Integrante do Educa Drones" loading="lazy">
+                        </div>
+                        <h3>Nome do integrante</h3>
+                        <p>Curso ou função no projeto</p>
+                        {% include "components/member_socials.html" with member_name="Integrante do Educa Drones" instagram_url="#" linkedin_url="#" %}
+                    </article>
+
+                    <article class="member-card">
+                        <div class="member-card__photo">
+                            <img src="/media/integrantes/aluno-06.jpg" alt="Integrante do Educa Drones" loading="lazy">
+                        </div>
+                        <h3>Nome do integrante</h3>
+                        <p>Curso ou função no projeto</p>
+                        {% include "components/member_socials.html" with member_name="Integrante do Educa Drones" instagram_url="#" linkedin_url="#" %}
+                    </article>
+
+                    <article class="member-card">
+                        <div class="member-card__photo">
+                            <img src="/media/integrantes/aluno-07.jpg" alt="Integrante do Educa Drones" loading="lazy">
+                        </div>
+                        <h3>Nome do integrante</h3>
+                        <p>Curso ou função no projeto</p>
+                        {% include "components/member_socials.html" with member_name="Integrante do Educa Drones" instagram_url="#" linkedin_url="#" %}
+                    </article>
+
+                    <article class="member-card">
+                        <div class="member-card__photo">
+                            <img src="/media/integrantes/aluno-08.jpg" alt="Integrante do Educa Drones" loading="lazy">
+                        </div>
+                        <h3>Nome do integrante</h3>
+                        <p>Curso ou função no projeto</p>
+                        {% include "components/member_socials.html" with member_name="Integrante do Educa Drones" instagram_url="#" linkedin_url="#" %}
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
 
 {% endblock %}

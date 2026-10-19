@@ -1,0 +1,217 @@
+:root {
+    --team-blue: #075f9f;
+    --team-text: #20252b;
+    --team-muted: #777b80;
+    --team-line: #eceef0;
+    --team-background: #ffffff;
+}
+
+.team-page,
+.team-hero {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.team-page *,
+.team-page *::before,
+.team-page *::after,
+.team-hero *,
+.team-hero *::before,
+.team-hero *::after {
+    box-sizing: border-box;
+}
+
+.team-container {
+    width: min(100% - 80px, 1320px);
+    margin-inline: auto;
+}
+
+.team-hero {
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background: var(--team-blue);
+}
+
+.team-hero h1 {
+    margin: 0 0 6px;
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.team-hero p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.team-page {
+    color: var(--team-text);
+    background: var(--team-background);
+}
+
+.team-section {
+    padding: 44px 0 86px;
+}
+
+.team-section--students {
+    border-top: 1px solid var(--team-line);
+    padding-top: 42px;
+    padding-bottom: 105px;
+}
+
+.team-section h2 {
+    margin: 0 0 50px;
+    text-align: center;
+    font-size: clamp(23px, 2.4vw, 29px);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.team-grid {
+    display: grid;
+    align-items: start;
+}
+
+.team-grid--researchers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 34px;
+    max-width: 960px;
+}
+
+.team-grid--students {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 42px;
+    row-gap: 78px;
+}
+
+.member-card {
+    min-width: 0;
+}
+
+.member-card__photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 12px;
+    overflow: hidden;
+    background-color: #e5e7e9;
+    background-image:
+        linear-gradient(135deg, transparent 49.6%, rgba(255, 255, 255, 0.75) 50%),
+        linear-gradient(45deg, transparent 49.6%, rgba(255, 255, 255, 0.75) 50%);
+    background-size: 100% 100%;
+}
+
+.member-card__photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%);
+    transition: filter 180ms ease, transform 250ms ease;
+}
+
+.member-card:hover .member-card__photo img {
+    filter: grayscale(0%);
+    transform: scale(1.025);
+}
+
+.member-card h3 {
+    margin: 0 0 2px;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.member-card p {
+    margin: 0;
+    color: var(--team-muted);
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.member-card__social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 17px;
+}
+
+.member-card__social a {
+    width: 27px;
+    height: 27px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--team-text);
+    text-decoration: none;
+    transition: color 180ms ease, transform 180ms ease;
+}
+
+.member-card__social a:hover,
+.member-card__social a:focus-visible {
+    color: var(--team-blue);
+    transform: translateY(-2px);
+}
+
+.member-card__social a:focus-visible {
+    border-radius: 4px;
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+}
+
+.member-card__social svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.member-card__social-dot {
+    fill: currentColor;
+    stroke: none;
+}
+
+@media (max-width: 900px) {
+    .team-container {
+        width: min(100% - 48px, 1320px);
+    }
+
+    .team-grid--researchers,
+    .team-grid--students {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 50px 28px;
+    }
+}
+
+@media (max-width: 560px) {
+    .team-container {
+        width: min(100% - 32px, 1320px);
+    }
+
+    .team-hero {
+        min-height: 150px;
+    }
+
+    .team-section,
+    .team-section--students {
+        padding: 36px 0 64px;
+    }
+
+    .team-section h2 {
+        margin-bottom: 32px;
+    }
+
+    .team-grid--researchers,
+    .team-grid--students {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+}

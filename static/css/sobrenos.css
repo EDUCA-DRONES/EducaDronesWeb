@@ -1,0 +1,447 @@
+/* =========================================================
+   Educa Drones – style.css
+   Mobile-first. Layout desktop a partir de 900px.
+   As colagens de fotos usam proporção fixa + posições em %,
+   então mantêm o mesmo arranjo do design em qualquer largura.
+   ========================================================= */
+
+:root {
+  --blue: #005ca6;
+  --blue-footer: #004d8c;
+  --navy: #00306d;
+  --ink: #11141a;
+  --cream: #fdfaf2;
+  --cream-2: #f8f5ee;
+  --white: #ffffff;
+  --gutter: 30px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--white);
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3, h4, h5, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.site-header {
+  background: var(--cream);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 67px;
+  position: relative;
+}
+.brand {
+  color: var(--navy);
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+}
+.main-nav { display: none; gap: 20px; }
+.main-nav a {
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.main-nav a:hover { opacity: .65; }
+
+/* hambúrguer (mobile): à esquerda, marca à direita */
+.menu-toggle { position: absolute; opacity: 0; pointer-events: none; }
+.menu-button {
+  order: -1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px 8px 8px 0;
+}
+.menu-button span {
+  width: 24px; height: 2px;
+  background: var(--navy);
+  opacity: .35;
+  border-radius: 2px;
+  transition: transform .25s, opacity .25s;
+}
+.menu-toggle:checked ~ .menu-button span { opacity: 1; }
+.menu-toggle:checked ~ .menu-button span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle:checked ~ .menu-button span:nth-child(2) { opacity: 0; }
+.menu-toggle:checked ~ .menu-button span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.menu-toggle:checked ~ .main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  background: var(--cream);
+  padding: 6px var(--gutter) 16px;
+  box-shadow: 0 10px 16px rgba(0,0,0,.08);
+}
+.menu-toggle:checked ~ .main-nav a { padding: 11px 0; font-size: 16px; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  background: var(--blue);
+  color: var(--white);
+  padding: 52px 0 60px;
+}
+.hero h1 {
+  font-size: 38px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.hero p {
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.4;
+  max-width: 460px;
+}
+
+/* =========================================================
+   COLAGENS
+   Cada colagem é uma única imagem (img/...png), já com as fotos
+   sobrepostas, bordas e sombras. Basta trocar o arquivo.
+   ========================================================= */
+.collage {
+  width: 100%;
+  max-width: 640px;
+}
+.collage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* quadro provisório (aparece só se o arquivo da imagem não existir) */
+.collage.missing {
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  text-align: center;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #c9d6e8 0%, #9db6d6 100%);
+  color: #fff;
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+}
+.collage.missing::after { content: "img/" attr(data-file); }
+.collage-mission.missing { aspect-ratio: 635 / 425; }
+.collage-a.missing       { aspect-ratio: 580 / 420; }
+.collage-b.missing       { aspect-ratio: 478 / 448; }
+.collage-c.missing       { aspect-ratio: 580 / 891; }
+.collage-d.missing       { aspect-ratio: 480 / 372; }
+
+/* =========================================================
+   MISSÃO
+   ========================================================= */
+.mission {
+  display: grid;
+  gap: 50px;
+  padding-block: 56px 70px;
+}
+.mission-text { order: -1; }
+.mission-text h2 {
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.mission-text p { margin-bottom: 40px; }
+.mission-text p:last-child { margin-bottom: 0; }
+.mission-text strong { font-weight: 600; }
+
+/* =========================================================
+   DESTAQUES
+   ========================================================= */
+.features {
+  display: grid;
+  gap: 56px;
+  padding-block: 20px 80px;
+  color: var(--navy);
+}
+.feature-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.feature-head svg {
+  flex: 0 0 60px;
+  width: 60px; height: 60px;
+}
+.feature h3 {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.feature p { font-size: 16px; line-height: 1.5; }
+
+/* =========================================================
+   NOSSA HISTÓRIA
+   ========================================================= */
+.history {
+  background: var(--cream-2);
+  padding: 60px 0 90px;
+}
+.history-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--navy);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 56px;
+}
+.chevron {
+  display: grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 50%;
+  transition: transform .2s;
+}
+.chevron:hover { transform: translateY(3px); }
+.chevron svg { width: 20px; height: 20px; }
+
+.story {
+  display: grid;
+  gap: 50px;
+  margin-bottom: 90px;
+}
+.story:last-child { margin-bottom: 0; }
+.story-text h3 {
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.story-text h3.spaced { margin-top: 52px; }
+.story-text p { margin-bottom: 18px; }
+.story-text p:last-child { margin-bottom: 0; }
+.story-text strong { font-weight: 600; }
+.story-text a { font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+  background: var(--blue-footer);
+  color: var(--white);
+  font-size: 15px;
+}
+.site-footer .container { --gutter: 20px; }
+.footer-grid {
+  display: grid;
+  gap: 34px;
+  padding-top: 40px;
+}
+.footer-brand { font-size: 17px; font-weight: 500; margin-bottom: 10px; }
+.footer-about p { max-width: 340px; color: #a9c9ec; line-height: 1.55; margin-bottom: 24px; }
+.footer-about p strong { font-weight: 500; color: #d3e6f8; }
+
+.socials { display: flex; gap: 16px; }
+.socials a {
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  border: 1px solid rgba(255, 255, 255, .85);
+  border-radius: 5px;
+  transition: background .2s;
+}
+.socials a:hover { background: rgba(255, 255, 255, .15); }
+.socials svg { width: 18px; height: 18px; }
+
+.footer-col h5 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #6aa6dc;
+  margin-bottom: 12px;
+}
+.footer-col li { margin-bottom: 10px; }
+.footer-col a { text-decoration: none; }
+.footer-col a:hover { text-decoration: underline; }
+.contact li { display: flex; align-items: center; gap: 8px; }
+.contact a { overflow-wrap: anywhere; }
+.contact svg {
+  flex: 0 0 26px;
+  width: 26px; height: 26px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, .85);
+  border-radius: 5px;
+}
+
+.partners {
+  margin-top: 38px;
+  padding-top: 24px;
+  border-top: 1px solid #1d6eb3;
+}
+.partners h5 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #6aa6dc;
+  margin-bottom: 16px;
+}
+.partners-list { display: flex; flex-direction: column; gap: 18px; }
+.partner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.25;
+}
+.partner small { display: block; font-size: 13px; }
+.partner-mark {
+  flex: 0 0 36px;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(255, 255, 255, .85);
+  border-radius: 5px;
+}
+
+.copyright {
+  margin-top: 30px;
+  padding-block: 22px 28px;
+  border-top: 1px solid #1d6eb3;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  color: #7fb2e3;
+}
+.copyright a { text-decoration: underline; }
+
+/* =========================================================
+   ≥ 640px  (tablets)
+   ========================================================= */
+@media (min-width: 640px) {
+  :root { --gutter: 40px; }
+  .hero h1 { font-size: 42px; }
+  .hero p { max-width: 560px; }
+  .mission-text h2 { font-size: 34px; }
+
+  .features { grid-template-columns: repeat(2, 1fr); column-gap: 44px; }
+  .features .feature:last-child { grid-column: 1 / -1; }
+
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-about { grid-column: 1 / -1; }
+}
+
+/* =========================================================
+   ≥ 900px  (desktop – layout do design de 1440px)
+   ========================================================= */
+@media (min-width: 900px) {
+  :root { --gutter: clamp(40px, 4.2vw, 60px); }
+  .site-header .container { --gutter: clamp(30px, 2.8vw, 40px); }
+
+  /* menu horizontal */
+  .menu-button { display: none; }
+  .main-nav { display: flex; }
+
+  .hero { padding: 62px 0 52px; }
+  .hero h1 { font-size: 42px; margin-bottom: 4px; }
+  .hero p { max-width: none; }
+
+  /* missão: fotos à esquerda (635) e texto à direita (635) */
+  .mission {
+    grid-template-columns: 635fr 635fr;
+    gap: 50px;
+    align-items: start;
+    padding-block: 70px 80px;
+  }
+  .mission-text { order: 0; }
+  .mission-text h2 { font-size: 34px; }
+
+  /* destaques em 3 colunas */
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 44px;
+    padding-block: 10px 90px;
+    padding-inline: calc(var(--gutter) + 10px);
+  }
+  .features .feature:last-child { grid-column: auto; }
+
+  /* história */
+  .history { padding: 56px 0 90px; }
+  .history-title { margin-bottom: 60px; }
+
+  .story {
+    grid-template-columns: 640fr 610fr;
+    gap: 70px;
+    margin-bottom: 120px;
+    align-items: start;
+  }
+  .story:last-child { margin-bottom: 0; }
+  .story .story-text { order: 0; }
+  .story .collage { order: 0; max-width: none; width: 95%; }
+
+  /* variação com a colagem à esquerda (480) e o texto à direita (790) */
+  .story.reverse { grid-template-columns: 480fr 790fr; gap: 50px; }
+  .story.reverse .collage { order: -1; width: 100%; }
+  .story.center { align-items: center; }
+
+  /* footer */
+  .footer-grid {
+    grid-template-columns: 432fr 414fr 239fr 275fr;
+    gap: 0;
+    padding-top: 42px;
+  }
+  .footer-col { padding-right: 24px; }
+  .footer-col:last-child { padding-right: 0; }
+  .footer-about { grid-column: auto; }
+  .site-footer .container { --gutter: clamp(30px, 2.8vw, 40px); }
+
+  .partners { text-align: center; margin-top: 30px; padding-top: 22px; }
+  .partners-list { flex-direction: row; justify-content: center; gap: 64px; }
+
+  .copyright { flex-direction: row; justify-content: space-between; margin-top: 26px; }
+}
+
+/* =========================================================
+   ≥ 1200px  (e-mail do rodapé em uma linha)
+   ========================================================= */
+@media (min-width: 1200px) {
+  .contact a { white-space: nowrap; }
+}
+
+/* =========================================================
+   Preferências do usuário
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}

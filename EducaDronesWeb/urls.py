@@ -2,11 +2,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include, path
-
+from livro_de_visitas import urls as livro_de_visitas_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("website.urls")),
+    path("visitas/", include(livro_de_visitas_urls)),
 ]
 
 if settings.DEBUG:

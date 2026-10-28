@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block title %}
+  Formulário de Visitas
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Formulário de Visitas</h1>
+    <form method="post" class="card form" action="{% url 'formulario' %}">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="field">
+          {{ field.label_tag }}
+          {{ field }}
+          {% if field.errors %}
+            {{ field.errors }}
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn--primary">Enviar</button>
+    </form>
+    <br>
+  </div>
+{% endblock %}

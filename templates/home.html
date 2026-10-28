@@ -8,6 +8,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 {% endblock %}
 
 {% block content %}
@@ -111,6 +112,44 @@
           <p class="step__text">Sua equipe tem um objetivo concreto: participar da Olimpíada Baiana de Drones e medir forças com equipes de toda a Bahia.</p>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <section class="impact-map-section" id="mapa-impacto">
+  <div class="impact-map-container">
+    <header class="impact-map-header">
+      <span class="home-section-label">Nosso alcance</span>
+      <h2>Educação que <em>alcança lugares</em></h2>
+      <p>
+        Cada registro representa uma pessoa alcançada pelo Educa Drones.
+        Explore o mapa e conheça o alcance do projeto pelo Brasil.
+      </p>
+    </header>
+
+    <div class="impact-map-stats">
+      <div class="impact-map-stat">
+        <span id="impact-total-pessoas">—</span>
+        <p>Pessoas alcançadas</p>
+      </div>
+
+      <div class="impact-map-stat">
+        <span id="impact-total-cidades">—</span>
+        <p>Cidades registradas no mapa</p>
+      </div>
+    </div>
+
+      <div
+        id="impact-map"
+       role="application"
+        aria-label="Mapa interativo do alcance do projeto Educa Drones"
+      ></div>
+
+      <p class="impact-map-note">
+        Os dados são apresentados de forma agregada, sem identificação dos visitantes.
+      </p>
+      <p id="impact-map-status" class="impact-map-status" aria-live="polite">
+        Carregando dados do mapa...
+      </p>
     </div>
   </section>
 
@@ -494,4 +533,9 @@
       </div>
     </div>
   </section>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+<script src="{% static 'js/mapa-impacto.js' %}"></script>
 {% endblock %}

@@ -438,6 +438,117 @@ body {
     letter-spacing: 2px;
 }
 
+.impact-map-section {
+    padding: 100px 10%;
+    padding-bottom: 20px;
+    background: #f9f6ef;
+    color: #222;
+}
+
+.impact-map-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    grid-template-areas:
+        "header map"
+        "stats map"
+        "note map"
+        "status map";
+    column-gap: 70px;
+    align-items: start;
+}
+
+.impact-map-header {
+    grid-area: header;
+    max-width: 560px;
+    margin: 0;
+}
+
+.impact-map-header .home-section-label {
+    color: #1264a3;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.impact-map-header h2 {
+    margin: 20px 0 18px;
+    font-size: clamp(36px, 4.1vw, 58px);
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.impact-map-header h2 em {
+    color: var(--blue-dark);
+    font-style: normal;
+}
+
+.impact-map-header p {
+    max-width: 540px;
+    margin: 0;
+    color: #606060;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.impact-map-stats {
+    grid-area: stats;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    margin: 30px 0 0;
+}
+
+.impact-map-stat {
+    min-width: 150px;
+    display: flex;
+    gap: 12px;
+}
+
+.impact-map-stat span {
+    display: block;
+    color: var(--blue-dark);
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.impact-map-stat p {
+    margin: 10px 0 0;
+    color: #606060;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+#impact-map {
+    grid-area: map;
+    width: 100%;
+    height: 555px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #e8e5de;
+    z-index: 1;
+}
+
+.impact-map-note {
+    grid-area: note;
+    margin: 24px 0 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.6;
+    display: none;
+}
+
+.impact-map-status {
+    grid-area: status;
+    min-height: 20px;
+    margin: 8px 0 0;
+    color: #666;
+    font-size: 13px;
+    display: none;
+}
+
 .home-achievements {
     background: var(--home-light);
 }
@@ -1702,6 +1813,30 @@ body {
         border-bottom: 0;
     }
 
+    .impact-map-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "stats"
+            "map"
+            "note"
+            "status";
+        row-gap: 28px;
+    }
+
+    .impact-map-header {
+        max-width: 700px;
+    }
+
+    .impact-map-stats {
+        margin-top: 0;
+        gap: 36px;
+    }
+
+    #impact-map {
+        height: 440px;
+    }
+
     /* Participação: 2x2 com linha conectando os círculos da mesma linha */
     .participacao { padding: 64px 0; }
 
@@ -1977,4 +2112,38 @@ body {
 
     .home-button,
     .btn { transition: none; }
+}
+
+@media (max-width: 600px) {
+    .impact-map-section {
+        padding: 64px 20px;
+    }
+
+    .impact-map-header h2 {
+        font-size: 36px;
+    }
+
+    .impact-map-header p {
+        font-size: 16px;
+    }
+
+    .impact-map-stats {
+        gap: 28px;
+    }
+
+    .impact-map-stat {
+        min-width: 120px;
+    }
+
+    .impact-map-stat span {
+        font-size: 32px;
+    }
+
+    .impact-map-stat p {
+        font-size: 15px;
+    }
+
+    #impact-map {
+        height: 360px;
+    }
 }

@@ -16,21 +16,21 @@ class VisitanteForm(forms.ModelForm):
                   'genero', 'telefone', 'data_nascimento']
         widgets = {
             'data_nascimento': forms.DateInput(attrs={'type': 'date'}),
-            'telefone': forms.TextInput(attrs={'type': 'tel', 'required': True}),
+            'telefone': forms.TextInput(attrs={'type': 'tel', 'required': True, 'placeholder': 'Ex: 11 91234-5678'}),
             'genero': forms.Select(attrs={'class': 'form-select'}),
             'nome': forms.TextInput(attrs={
                 'pattern': '[a-zA-ZÀ-ÿ ]+',
                 'title': 'Apenas letras são permitidas.',
-                'oninput': "this.value = this.value.replace(/[^a-zA-ZÀ-ÿ ]/g, '')"
+                'oninput': "this.value = this.value.replace(/[^a-zA-ZÀ-ÿ ]/g, '')",
+                'placeholder': 'Digite seu nome...',
             }),
             'estado': forms.Select(attrs={
                 'class': 'form-select'
 
             }),
-            'cidade': forms.TextInput(attrs={
-                'pattern': '[a-zA-ZÀ-ÿ ]+',
-                'title': 'Apenas letras são permitidas.',
-                'oninput': "this.value = this.value.replace(/[^a-zA-ZÀ-ÿ ]/g, '')"
+            'cidade': forms.Select(attrs={
+                'class': 'form-select',
+                'disabled': True,
             }),
         }
 
@@ -43,7 +43,10 @@ class VisitanteForm(forms.ModelForm):
         self.fields['estado'].choices = [
             ('', 'Selecione um Estado...')] + list(Visitante.Estados.choices)
 
-        for campo in ['nome', 'estado', 'cidade']:
+        self.fields['cidade'].choices = [
+            ('', 'Selecione um Estado Primeiro...')] + list(Visitante.objects.none())
+
+        for campo in ['nome', 'estado']:
             if campo in self.fields:
                 self.fields[campo].validators.append(validador_letras)
 

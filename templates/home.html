@@ -337,40 +337,41 @@
     </div>
   </section>
 
-  <section class="home-section home-colibri">
-    <div class="home-container home-two-columns home-two-columns--reverse">
-      <div>
-        <span class="home-section-label2">DRONES EDUCACIONAIS</span>
+  <section class="home-colibri-scroll" id="colibri-scroll" data-frames="{% static 'img/colibri/' %}"> 
+    <div class="colibri-sticky">
 
-        <h2>Linha <em>COLIBRI</em></h2>
+      <div class="colibri-card">
 
-        <p>Desenvolvido internamente pelo projeto, o Colibri é um drone projetado especificamente para o uso educacional e para competições estudantis. Impresso em 3D, adaptável e com ecossistema totalmente aberto.</p>
-
-        <div class="home-colibri__features">
-          <div>
-            <strong>Impressão 3D</strong>
-            <span>Peças ilimitadas e reposição facilitada.</span>
-          </div>
-
-          <div>
-            <strong>Ecossistema aberto</strong>
-            <span>Guincho, câmera, dispensador de sementes e outros periféricos.</span>
-          </div>
-
-          <div>
-            <strong>Plataforma de pesquisa</strong>
-            <span>Base para projetos publicados em congressos.</span>
-          </div>
+        <div class="colibri-video">
+          <canvas id="colibriCanvas"></canvas>
         </div>
 
-        <p class="home-note">O Colibri não é requisito para participar do projeto. Kits comerciais mais acessíveis são totalmente compatíveis com o Programa de Treinamento.</p>
+        <div class="colibri-conteudo">
+          <span class="colibri-destaque">
+            Drones Educacionais
+          </span>
 
-        <a href="#" class="home-button home-button--primary3">Veja todos os modelos →</a>
-      </div>
+          <h2 class="colibri-titulo">
+            Linha
+            <strong>COLIBRI</strong>
+          </h2>
 
-      <div class="home-image-placeholder home-image-placeholder--colibri">
-        <span>IMAGEM DO COLIBRI</span>
-        <small>Substituir pela foto/render do drone</small>
+          <p class="colibri-desc">
+            Desenvolvido internamente pelo projeto, o Colibri é
+            um drone projetado especificamente para o uso educacional
+            e para competições estudantis. Impresso em 3D, adaptável
+            e com ecossistema totalmente aberto.
+          </p>
+
+          <p class="colibri-aviso">
+            O Colibri não é requisito para participar do projeto. 
+            Kits comerciais mais acessíveis são totalmente compatíveis com o Programa de Treinamento.
+          </p>
+
+          <a class="colibri-btn">
+            Veja todos os modelos
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -538,4 +539,8 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
 <script src="{% static 'js/mapa-impacto.js' %}"></script>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'js/colibri-scroll.js' %}"></script>
 {% endblock %}

@@ -118,12 +118,13 @@
 
 .site-footer__social img {
     width: 26px;
-    height: 26px;
+    
     object-fit: contain;
 }
 
+.site-footer__social-git{ height: 40px;}
+
 .site-footer__social a:nth-child(3) img {
-    width: 65px;
     height: 56px;
 }
 

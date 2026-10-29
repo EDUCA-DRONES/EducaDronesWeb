@@ -37,7 +37,6 @@ def formulario(request):
                 return redirect("formulario")
 
             form.save(commit=True)
-            
             messages.success(request, "Formulário enviado com sucesso!")
             return redirect("formulario")
 

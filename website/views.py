@@ -51,3 +51,6 @@ def noticia_detalhe(request, slug):
         "Noticias/noticia_detalhe.html",
         {"noticia": noticia},
     )
+
+def obadrones(request):
+    return render(request, "OBaDrones/obadrones.html")

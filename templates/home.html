@@ -328,6 +328,11 @@
               <h3>{{ noticia.titulo }}</h3>
 
               <p>{{ noticia.resumo }}</p>
+
+              <a href="{% url 'noticia_detalhe' noticia.slug %}">
+                  Ler notícia →
+              </a>
+
             </div>
           </article>
         {% empty %}

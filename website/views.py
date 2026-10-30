@@ -54,3 +54,7 @@ def noticia_detalhe(request, slug):
 
 def obadrones(request):
     return render(request, "OBaDrones/obadrones.html")
+
+
+def colibri(request):
+    return render(request, "Colibri/colibri.html")

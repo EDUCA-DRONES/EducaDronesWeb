@@ -329,7 +329,7 @@
 
               <p>{{ noticia.resumo }}</p>
 
-              <a href="{% url 'noticia_detalhe' noticia.slug %}">
+              <a href="{% url 'noticia_detalhe' noticia.slug %}" class="news-card__link">
                   Ler notícia →
               </a>
 
@@ -373,7 +373,7 @@
             Kits comerciais mais acessíveis são totalmente compatíveis com o Programa de Treinamento.
           </p>
 
-          <a class="colibri-btn">
+          <a class="colibri-btn" href="{% url 'colibri' %}"">
             Veja todos os modelos
           </a>
         </div>

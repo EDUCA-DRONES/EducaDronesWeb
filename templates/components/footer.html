@@ -11,9 +11,9 @@
         <p>Têm interesse em levar o projeto para sua escola ou universidade? Entre em contato através do email ou por nossas redes sociais</p>
 
         <div class="site-footer__social">
-          <a href="#" aria-label="Instagram"><img src="{% static 'img/footer/instagram.webp' %}" alt="Instagram" loading="lazy" /></a>
+          <a href="https://www.instagram.com/educa_drones/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><img src="{% static 'img/footer/instagram.webp' %}" alt="Instagram" loading="lazy" /></a>
 
-          <a href="#" aria-label="WhatsApp"><img src="{% static 'img/footer/whatsapp.webp' %}" alt="WhatsApp" loading="lazy" /></a>
+          <a href="https://wa.me/5577999999999" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><img src="{% static 'img/footer/whatsapp.webp' %}" alt="WhatsApp" loading="lazy" /></a>
         </div>
       </div>
 
@@ -23,18 +23,18 @@
 
         <a href="#">Montagem e Configuração de Drones</a>
         <a href="#">Pilotagem de Drones</a>
-        <a href="#">OBaDrones</a>
-        <a href="#">Colibri</a>
+        <a href="{% url "home" %}#obadrones">OBaDrones</a>
+        <a href="{% url 'home' %}#colibri-scroll">Colibri</a>
       </div>
 
       <!-- INSTITUIÇÃO -->
       <div class="site-footer__column">
         <h4>INSTITUIÇÃO</h4>
 
-        <a href="#">Sobre Nós</a>
-        <a href="#">Membros</a>
+        <a href="{% url 'sobre' %}">Sobre Nós</a>
+        <a href="{% url 'integrantes' %}">Membros</a>
         <a href="#">Equipes</a>
-        <a href="#">Newsletter</a>
+        <a href="{% url 'noticias' %}">Newsletter</a>
       </div>
 
       <!-- CONTATO -->
@@ -114,7 +114,7 @@
 
       <span>
         Desenvolvido por
-        <a href="#">Educa Drones</a>
+        <a href="{% url 'home' %}">Educa Drones</a>
       </span>
     </div>
   </div>

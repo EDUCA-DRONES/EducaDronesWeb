@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block title %}Colibri | Educa Drones{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/colibri.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="colibri">
+  <div class="colibri-box">
+
+    <!-- Ícone de drone (SVG inline, herda a cor do texto) -->
+    <svg class="colibri-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor"
+         stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="25" y="26" width="14" height="12" rx="3"/>
+      <path d="M27 28L15 16M37 28l12-12M27 36L15 48M37 36l12 12"/>
+      <path d="M6 13h18M40 13h18M6 51h18M40 51h18"/>
+      <path d="M15 13v3M49 13v3M15 51v-3M49 51v-3"/>
+    </svg>
+
+    <h1>Colibri</h1>
+    <p>Esta página ainda está em desenvolvimento.<br>
+       O projeto Colibri chega na versão 2.0 do site.</p>
+
+    <a class="colibri-link" href="{% url 'home' %}">Voltar para o início</a>
+  </div>
+</main>
+{% endblock %}

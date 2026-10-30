@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from emails.forms import Contato
 from emails.views import process_form
@@ -41,3 +41,20 @@ def noticias(request):
         "Noticias/noticias.html",
         {"noticias": noticias},
     )
+
+
+def noticia_detalhe(request, slug):
+    noticia = get_object_or_404(Noticia, slug=slug)
+
+    return render(
+        request,
+        "Noticias/noticia_detalhe.html",
+        {"noticia": noticia},
+    )
+
+def obadrones(request):
+    return render(request, "OBaDrones/obadrones.html")
+
+
+def colibri(request):
+    return render(request, "Colibri/colibri.html")

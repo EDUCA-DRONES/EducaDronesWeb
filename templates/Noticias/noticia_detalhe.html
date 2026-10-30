@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block title %}{{ noticia.titulo }} | Educa Drones{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/noticia_detalhe.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="article-page">
+
+    <div class="article-container">
+
+        
+
+        <article class="article">
+
+            <header class="article-header">
+
+                <div class="article-meta">
+
+                    <span class="article-category">
+                        {{ noticia.categoria }}
+                    </span>
+
+                    <time datetime="{{ noticia.data_publicacao|date:'Y-m-d' }}">
+                        {{ noticia.data_publicacao|date:"d/m/Y" }}
+                    </time>
+
+                </div>
+
+                <h1>
+                    {{ noticia.titulo }}
+                </h1>
+
+                <p class="article-summary">
+                    {{ noticia.resumo }}
+                </p>
+
+            </header>
+
+            <div class="article-body">
+
+                <div class="article-content">
+                    {{ noticia.conteudo|linebreaks }}
+                </div>
+
+                <div class="article-image">
+                    <img
+                        src="{{ noticia.imagem.url }}"
+                        alt="{{ noticia.titulo }}"
+                    >
+                </div>
+
+            </div>
+
+            <footer class="article-footer">
+
+                <a href="{% url 'noticias' %}" class="article-back">
+                    ← Voltar para notícias
+                </a>
+
+            </footer>
+
+        </article>
+
+    </div>
+
+</section>
+
+{% endblock %}

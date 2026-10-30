@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block title %}OBaDrones | Educa Drones{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/obadrones.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+
+<main class="oba">
+
+  <!-- HERO -->
+  <section class="oba-hero">
+    <div class="oba-container">
+      <h1>O QUE É A OBADRONES?</h1>
+      <p class="oba-lead">
+        A Olimpíada Baiana de Drones: o maior evento de drones da Bahia, levando
+        ciência, tecnologia e inovação para dentro das escolas.
+      </p>
+    </div>
+  </section>
+
+  <!-- NÚMEROS DA 1ª EDIÇÃO -->
+  <section class="oba-container">
+    <ul class="oba-stats" aria-label="Números da primeira edição">
+      <li><strong>3</strong><span>dias de evento</span></li>
+      <li><strong>6</strong><span>equipes na competição</span></li>
+      <li><strong>30+</strong><span>escolas e universidades</span></li>
+      <li><strong>16+</strong><span>municípios da região</span></li>
+    </ul>
+    <p class="oba-stats-note">Números da 1ª edição (agosto de 2025), com base na previsão e na divulgação da organização.</p>
+  </section>
+
+  <!-- O QUE É -->
+  <section class="oba-container oba-split">
+    <div class="oba-text">
+      <h2>O que é a OBaDrones</h2>
+      <p>
+        A Olimpíada Baiana de Drones é uma competição educacional que busca popularizar
+        e impulsionar o desenvolvimento de tecnologias de drones. Ela recebe tanto quem já
+        tem familiaridade com drones e robótica educacional quanto estudantes de escolas
+        que nunca tiveram esse contato.
+      </p>
+      <p>
+        O propósito é inspirar jovens a seguirem carreiras científico-tecnológicas,
+        aproximando a comunidade acadêmica, as empresas e o público em geral.
+      </p>
+      <p class="oba-destaque">
+        Entrada gratuita e aberta ao público.
+      </p>
+    </div>
+    <div class="oba-figure">
+      <img src="{% static 'img/oba_drones/obadrones-oquee.jpg' %}"
+           alt="Momentos da OBaDrones: equipes, voos e público"
+           loading="lazy">
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="oba-band">
+    <div class="oba-container">
+      <h2>Como funciona a competição</h2>
+      <p class="oba-band-sub">
+        Para estudantes e professores do ensino fundamental, médio, técnico, graduação e pós-graduação.
+        As equipes percorrem quatro etapas:
+      </p>
+      <ol class="oba-steps">
+        <li><span>01</span><h3>Projetar</h3><p>Definem a concepção do drone multirrotor e as soluções para as missões.</p></li>
+        <li><span>02</span><h3>Documentar</h3><p>Registram o projeto e as decisões técnicas da equipe.</p></li>
+        <li><span>03</span><h3>Construir</h3><p>Montam e configuram a aeronave com as próprias mãos.</p></li>
+        <li><span>04</span><h3>Voar</h3><p>Executam missões em voo autônomo, previstas no regulamento.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PROVAS -->
+  <section class="oba-container oba-provas" id="provas">
+    <h2>Provas da 1ª edição</h2>
+    <p class="oba-section-sub">Desafios inspirados em aplicações reais dos drones.</p>
+    <div class="oba-provas-grid">
+      <article><span class="oba-num">1</span><h3>Transporte de carga</h3></article>
+      <article><span class="oba-num">2</span><h3>Pulverização</h3></article>
+      <article><span class="oba-num">3</span><h3>Inspeção de aerogeradores</h3></article>
+      <article class="oba-novo"><span class="oba-num">4</span><h3>Irrigação</h3><em>Inédita</em></article>
+    </div>
+    <!-- TODO: atualizar com as provas e o regulamento da II edição quando estiverem definidos -->
+  </section>
+
+  <!-- ALÉM DA COMPETIÇÃO -->
+  <section class="oba-container oba-split oba-split--reverse">
+    <div class="oba-figure">
+      <img src="{% static 'img/oba_drones/obadrones-programacao.jpg' %}"
+           alt="Oficinas, exposição de empresas e demonstrações aéreas na OBaDrones"
+           loading="lazy">
+    </div>
+    <div class="oba-text">
+      <h2>Além da competição</h2>
+      <p>A programação inclui oficinas, cursos e exposição de projetos, produtos e serviços de empresas parceiras.</p>
+      <ul class="oba-list">
+        <li>Visão computacional aplicada à competição de drones com YOLOv8</li>
+        <li>Drones, dinâmica de voo e o mundo do trabalho</li>
+        <li>Curso de pilotagem de drones</li>
+        <li>Exposição de empresas e demonstrações aéreas</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PRIMEIRA EDIÇÃO -->
+  <section class="oba-historia">
+    <div class="oba-container oba-split">
+      <div class="oba-text">
+        <p class="oba-eyebrow oba-eyebrow--dark">1ª edição · 21 a 23 de agosto de 2025</p>
+        <h2>Como tudo começou</h2>
+        <p>
+          A primeira OBaDrones aconteceu no IF Baiano, campus Guanambi, com apoio do CETEIA
+          (Centro de Estudos Tecnológicos em Informática e Agronomia). Foi idealizada pelo
+          professor Leandro Gonçalves dos Santos e organizada de forma colaborativa por
+          professores, técnicos, estudantes e empresas parceiras.
+        </p>
+        <p>
+          A comissão organizadora reuniu 13 professores e 26 estudantes. Seis equipes de
+          diferentes estados foram selecionadas por inscrição nacional, e o título geral
+          ficou com a equipe do Laboratório de Drones do IFSC, campus Florianópolis, que
+          também levou o troféu de drone mais inovador.
+        </p>
+      </div>
+      <div class="oba-figure">
+        <img src="{% static 'img/oba_drones/obadrones-primeira-edicao.jpg' %}"
+             alt="Primeira edição da OBaDrones no IF Baiano, campus Guanambi"
+             loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="oba-cta">
+    <div class="oba-container">
+      <h2>Quer participar?</h2>
+      <p>Acompanhe as novidades e as inscrições da próxima edição.</p>
+      <div class="oba-actions oba-actions--center">
+        <a class="oba-btn oba-btn--primary" href="{% url 'noticias' %}" target="_blank" rel="noopener">Fique por dentro das próximas notícias</a>
+        <a class="oba-btn oba-btn--ghost" href="https://www.instagram.com/educa_drones/" target="_blank" rel="noopener">@educa_drones</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock %}

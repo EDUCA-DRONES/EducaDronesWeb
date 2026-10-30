@@ -27,20 +27,20 @@
 
         </div>
 
-
         {% if noticias %}
 
             {% with destaque=noticias.0 %}
 
                 <article class="news-featured">
 
-                    <a href="#" class="news-featured__image">
-
+                    <a
+                        href="{% url 'noticia_detalhe' destaque.slug %}"
+                        class="news-featured__image"
+                    >
                         <img
                             src="{{ destaque.imagem.url }}"
                             alt="{{ destaque.titulo }}"
                         >
-
                     </a>
 
                     <div class="news-featured__content">
@@ -63,7 +63,10 @@
                             {{ destaque.resumo }}
                         </p>
 
-                        <a href="#" class="news-button">
+                        <a
+                            href="{% url 'noticia_detalhe' destaque.slug %}"
+                            class="news-button"
+                        >
                             Ver notícia
                             <span>→</span>
                         </a>
@@ -74,11 +77,9 @@
 
             {% endwith %}
 
-
             <div class="news-divider">
                 <span>Todos os acontecimentos</span>
             </div>
-
 
             <div class="news-grid">
 
@@ -86,13 +87,14 @@
 
                     <article class="news-card">
 
-                        <a href="#" class="news-card__image">
-
+                        <a
+                            href="{% url 'noticia_detalhe' noticia.slug %}"
+                            class="news-card__image"
+                        >
                             <img
                                 src="{{ noticia.imagem.url }}"
                                 alt="{{ noticia.titulo }}"
                             >
-
                         </a>
 
                         <div class="news-card__content">
@@ -117,7 +119,10 @@
                                 {{ noticia.resumo }}
                             </p>
 
-                            <a href="#" class="news-card__link">
+                            <a
+                                href="{% url 'noticia_detalhe' noticia.slug %}"
+                                class="news-card__link"
+                            >
                                 Ler notícia →
                             </a>
 

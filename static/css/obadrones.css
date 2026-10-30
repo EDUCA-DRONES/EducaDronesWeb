@@ -1,0 +1,204 @@
+.oba {
+  --azul: #0a58a8;
+  --navy: #0b2f6b;
+  --creme: #faf6ee;
+  --texto: #1a1a1a;
+  --borda: #e6dfcf;
+
+  background: var(--creme);
+  color: var(--texto);
+  font-family: inherit;   /* usa a mesma fonte do restante do site */
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+.oba h1, .oba h2, .oba h3 { margin: 0; line-height: 1.25; }
+
+.oba-container {
+  width: min(1000px, 100% - 3rem);
+  margin-inline: auto;
+}
+
+/* ---------- Hero (azul chapado) ---------- */
+.oba-hero {
+  background: var(--azul);
+  color: #fff;
+  padding: 3rem 0 2.5rem;
+}
+.oba-hero h1 {
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: .01em;
+  margin-bottom: .5rem;
+}
+.oba-lead { margin: 0; max-width: 62ch; font-size: 1rem; }
+
+/* ---------- Links em forma de botão ---------- */
+.oba-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.oba-actions--center { justify-content: center; }
+.oba-btn {
+  display: inline-block;
+  padding: .65rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: .9rem;
+  text-decoration: none;
+  transition: opacity .15s ease;
+}
+.oba-btn:hover { opacity: .88; }
+.oba-btn--primary { background: var(--azul); color: var(--creme); }
+.oba-btn--ghost { border: 2px solid var(--azul); color: var(--azul); }
+
+/* ---------- Números ---------- */
+.oba-stats {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+.oba-stats strong {
+  display: block;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: var(--azul);
+}
+.oba-stats span { font-size: .85rem; color: var(--navy); }
+.oba-stats-note {
+  margin: .75rem 0 0;
+  text-align: center;
+  font-size: .75rem;
+  color: #6b6b6b;
+}
+
+/* ---------- Texto + imagem ---------- */
+.oba-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  padding-block: 3rem;
+}
+.oba-split--reverse .oba-figure { order: -1; }
+
+.oba-text h2 {
+  margin-bottom: 1rem;
+  color: var(--navy);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+.oba-text p { margin: 0 0 1rem; }
+.oba-destaque { font-weight: 700; color: var(--navy); }
+
+.oba-eyebrow {
+  margin: 0 0 .5rem;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+
+/* A imagem já é uma colagem pronta: sem borda, sombra ou rotação */
+.oba-figure img { display: block; width: 100%; height: auto; border-radius: 10px;}
+
+.oba-list { margin: 0; padding-left: 1.1rem; }
+.oba-list li { margin-bottom: .4rem; }
+.oba-list li::marker { color: var(--azul); }
+
+/* ---------- Seções com título centralizado ---------- */
+.oba-band,
+.oba-provas { padding-block: 3rem; }
+
+.oba-band { background: #fff; }
+.oba-band h2,
+.oba-provas h2 {
+  color: var(--navy);
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: .35rem;
+}
+.oba-band-sub,
+.oba-section-sub { margin: 0 0 2rem; max-width: 62ch; color: #444; }
+
+/* Etapas */
+.oba-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.oba-steps li { border-top: 2px solid var(--azul); padding-top: .85rem; }
+.oba-steps span { display: block; font-size: 1.4rem; font-weight: 800; color: var(--azul); }
+.oba-steps h3 { margin: .25rem 0; font-size: 1rem; color: var(--navy); }
+.oba-steps p { margin: 0; font-size: .88rem; }
+
+/* Provas */
+.oba-provas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.oba-provas-grid article {
+  position: relative;
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+}
+.oba-num {
+  display: grid;
+  place-items: center;
+  width: 2rem; height: 2rem;
+  margin-bottom: .75rem;
+  border-radius: 50%;
+  background: var(--azul);
+  color: #fff;
+  font-size: .9rem;
+  font-weight: 800;
+}
+.oba-provas-grid h3 { font-size: 1rem; color: var(--navy); }
+.oba-novo em {
+  position: absolute;
+  top: .9rem; right: .9rem;
+  padding: .1rem .55rem;
+  border-radius: 4px;
+  background: var(--navy);
+  color: #fff;
+  font-size: .68rem;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ---------- Primeira edição ---------- */
+.oba-historia { background: #fff; border-block: 1px solid var(--borda); }
+
+/* ---------- Chamada final (azul chapado) ---------- */
+.oba-cta {
+  background: var(--creme);
+  color: var(--navy);
+  text-align: center;
+  padding: 3rem 0;
+}
+.oba-cta h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: .35rem; }
+.oba-cta p { margin: 0; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px) {
+  .oba-stats,
+  .oba-steps,
+  .oba-provas-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 800px) {
+  .oba-split { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 2rem; }
+  .oba-split--reverse .oba-figure { order: 0; }
+}
+@media (max-width: 480px) {
+  .oba-steps,
+  .oba-provas-grid { grid-template-columns: 1fr; }
+}

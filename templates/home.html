@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 {% endblock %}
 
 {% block content %}
@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      <img src="{% static 'img/home/nossa-historia.png' %}" alt="" class="image2" />
+      <img src="{% static 'img/home/nossa-historia.webp' %}" alt="" class="image2" loading="lazy"/>
     </div>
   </section>
 
@@ -116,40 +116,29 @@
   </section>
 
   <section class="impact-map-section" id="mapa-impacto">
-  <div class="impact-map-container">
-    <header class="impact-map-header">
-      <span class="home-section-label">Nosso alcance</span>
-      <h2>Educação que <em>alcança lugares</em></h2>
-      <p>
-        Cada registro representa uma pessoa alcançada pelo Educa Drones.
-        Explore o mapa e conheça o alcance do projeto pelo Brasil.
-      </p>
-    </header>
+    <div class="impact-map-container">
+      <header class="impact-map-header">
+        <span class="home-section-label">Nosso alcance</span>
+        <h2>Educação que <em>alcança lugares</em></h2>
+        <p>Cada registro representa uma pessoa alcançada pelo Educa Drones. Explore o mapa e conheça o alcance do projeto pelo Brasil.</p>
+      </header>
 
-    <div class="impact-map-stats">
-      <div class="impact-map-stat">
-        <span id="impact-total-pessoas">—</span>
-        <p>Pessoas alcançadas</p>
+      <div class="impact-map-stats">
+        <div class="impact-map-stat">
+          <span id="impact-total-pessoas">—</span>
+          <p>Pessoas alcançadas</p>
+        </div>
+
+        <div class="impact-map-stat">
+          <span id="impact-total-cidades">—</span>
+          <p>Cidades registradas no mapa</p>
+        </div>
       </div>
 
-      <div class="impact-map-stat">
-        <span id="impact-total-cidades">—</span>
-        <p>Cidades registradas no mapa</p>
-      </div>
-    </div>
+      <div id="impact-map" role="application" aria-label="Mapa interativo do alcance do projeto Educa Drones"></div>
 
-      <div
-        id="impact-map"
-       role="application"
-        aria-label="Mapa interativo do alcance do projeto Educa Drones"
-      ></div>
-
-      <p class="impact-map-note">
-        Os dados são apresentados de forma agregada, sem identificação dos visitantes.
-      </p>
-      <p id="impact-map-status" class="impact-map-status" aria-live="polite">
-        Carregando dados do mapa...
-      </p>
+      <p class="impact-map-note">Os dados são apresentados de forma agregada, sem identificação dos visitantes.</p>
+      <p id="impact-map-status" class="impact-map-status" aria-live="polite">Carregando dados do mapa...</p>
     </div>
   </section>
 
@@ -167,7 +156,7 @@
             {% for conquista in conquistas %}
               <article class="home-achievement-card">
                 <div class="home-achievement-card__image">
-                  <img src="{{ conquista.imagem.url }}" alt="{{ conquista.titulo }}" />
+                  <img src="{{ conquista.imagem.url }}" alt="{{ conquista.titulo }}" loading="lazy" />
                 </div>
 
                 <div>
@@ -196,13 +185,13 @@
               <p>Em 2026, na segunda edição sediada em João Pessoa-PB, o Educa Drones volta a apresentar novos avanços com o trabalho "Seed Dispenser for Reforestation with Drones".</p>
 
               <div class="home-cros-card__logos">
-                <img src="{% static 'img/home/cros-2025.png' %}" alt="CROS 2025" />
-                <img src="{% static 'img/home/cros-2026.png' %}" alt="CROS 2026" />
+                <img src="{% static 'img/home/cros-2025.webp' %}" alt="CROS 2025" loading="lazy" />
+                <img src="{% static 'img/home/cros-2026.webp' %}" alt="CROS 2026" loading="lazy" />
               </div>
             </div>
 
             <div class="home-cros-card__image">
-              <img src="{% static 'img/home/cros.jpg' %}" alt="Participação na CROS" />
+              <img src="{% static 'img/home/cros.webp' %}" alt="Participação na CROS" loading="lazy" />
             </div>
           </article>
         </div>
@@ -218,7 +207,7 @@
 
             <p>Em 2024, alunos do ensino médio e superior do IF Baiano participaram do XV International Micro Air Vehicle Conference and Competition em Bristol, Inglaterra — um dos maiores eventos de drones do mundo.</p>
 
-            <img src="{% static 'img/home/imav.jpg' %}" alt="Equipe Educa Drones no IMAV" />
+            <img src="{% static 'img/home/imav.webp' %}" alt="Equipe Educa Drones no IMAV" loading="lazy" />
 
             <div class="home-imav-card__stats">
               <div>
@@ -295,7 +284,7 @@
         <a href="{% url 'obadrones' %}" class="home-button home-button--primary3">Saiba mais sobre a OBaDrones</a>
       </div>
 
-      <img src="{% static 'img/home/oba-drones.png' %}" alt="Oba Drones" class="oba-drones" />
+      <img src="{% static 'img/home/oba-drones.webp' %}" alt="Oba Drones" class="oba-drones" loading="lazy" />
     </div>
   </section>
 
@@ -315,7 +304,7 @@
         {% for noticia in noticias %}
           <article class="home-news-card">
             <div class="home-image-placeholder home-image-placeholder--news">
-              <img src="{{ noticia.imagem.url }}" alt="{{ noticia.titulo }}" />
+              <img src="{{ noticia.imagem.url }}" alt="{{ noticia.titulo }}" loading="lazy" />
             </div>
 
             <div class="home-news-card__content">
@@ -329,10 +318,7 @@
 
               <p>{{ noticia.resumo }}</p>
 
-              <a href="{% url 'noticia_detalhe' noticia.slug %}" class="news-card__link">
-                  Ler notícia →
-              </a>
-
+              <a href="{% url 'noticia_detalhe' noticia.slug %}" class="news-card__link">Ler notícia →</a>
             </div>
           </article>
         {% empty %}
@@ -342,40 +328,26 @@
     </div>
   </section>
 
-  <section class="home-colibri-scroll" id="colibri-scroll" data-frames="{% static 'img/colibri/' %}"> 
+  <section class="home-colibri-scroll" id="colibri-scroll" data-frames="{% static 'img/colibri/' %}">
     <div class="colibri-sticky">
-
       <div class="colibri-card">
-
         <div class="colibri-video">
           <canvas id="colibriCanvas"></canvas>
         </div>
 
         <div class="colibri-conteudo">
-          <span class="colibri-destaque">
-            Drones Educacionais
-          </span>
+          <span class="colibri-destaque">Drones Educacionais</span>
 
           <h2 class="colibri-titulo">
             Linha
             <strong>COLIBRI</strong>
           </h2>
 
-          <p class="colibri-desc">
-            Desenvolvido internamente pelo projeto, o Colibri é
-            um drone projetado especificamente para o uso educacional
-            e para competições estudantis. Impresso em 3D, adaptável
-            e com ecossistema totalmente aberto.
-          </p>
+          <p class="colibri-desc">Desenvolvido internamente pelo projeto, o Colibri é um drone projetado especificamente para o uso educacional e para competições estudantis. Impresso em 3D, adaptável e com ecossistema totalmente aberto.</p>
 
-          <p class="colibri-aviso">
-            O Colibri não é requisito para participar do projeto. 
-            Kits comerciais mais acessíveis são totalmente compatíveis com o Programa de Treinamento.
-          </p>
+          <p class="colibri-aviso">O Colibri não é requisito para participar do projeto. Kits comerciais mais acessíveis são totalmente compatíveis com o Programa de Treinamento.</p>
 
-          <a class="colibri-btn" href="{% url 'colibri' %}"">
-            Veja todos os modelos
-          </a>
+          <a class="colibri-btn" href="{% url 'colibri' %}">Veja todos os modelos</a>
         </div>
       </div>
     </div>
@@ -540,10 +512,9 @@
     </div>
   </section>
 
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
-<script src="{% static 'js/mapa-impacto.js' %}"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+  <script src="{% static 'js/mapa-impacto.js' %}"></script>
 {% endblock %}
 
 {% block extra_js %}

@@ -131,7 +131,7 @@ ul { padding: 0; list-style: none; }
 
 /* =========================================================
    COLAGENS
-   Cada colagem é uma única imagem (img/...png), já com as fotos
+   Cada colagem é uma única imagem (img/...webp), já com as fotos
    sobrepostas, bordas e sombras. Basta trocar o arquivo.
    ========================================================= */
 .collage {

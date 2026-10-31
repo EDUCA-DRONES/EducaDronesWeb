@@ -35,73 +35,6 @@ ul { padding: 0; list-style: none; }
 }
 
 /* =========================================================
-   HEADER
-   ========================================================= */
-.site-header {
-  background: var(--cream);
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 67px;
-  position: relative;
-}
-.brand {
-  color: var(--navy);
-  font-weight: 500;
-  font-size: 18px;
-  text-decoration: none;
-}
-.main-nav { display: none; gap: 20px; }
-.main-nav a {
-  color: var(--navy);
-  font-size: 14px;
-  font-weight: 400;
-  text-decoration: none;
-  transition: opacity .2s;
-}
-.main-nav a:hover { opacity: .65; }
-
-/* hambúrguer (mobile): à esquerda, marca à direita */
-.menu-toggle { position: absolute; opacity: 0; pointer-events: none; }
-.menu-button {
-  order: -1;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 8px 8px 8px 0;
-}
-.menu-button span {
-  width: 24px; height: 2px;
-  background: var(--navy);
-  opacity: .35;
-  border-radius: 2px;
-  transition: transform .25s, opacity .25s;
-}
-.menu-toggle:checked ~ .menu-button span { opacity: 1; }
-.menu-toggle:checked ~ .menu-button span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.menu-toggle:checked ~ .menu-button span:nth-child(2) { opacity: 0; }
-.menu-toggle:checked ~ .menu-button span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-.menu-toggle:checked ~ .main-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  position: absolute;
-  top: 100%;
-  left: 0; right: 0;
-  background: var(--cream);
-  padding: 6px var(--gutter) 16px;
-  box-shadow: 0 10px 16px rgba(0,0,0,.08);
-}
-.menu-toggle:checked ~ .main-nav a { padding: 11px 0; font-size: 16px; }
-
-/* =========================================================
    HERO
    ========================================================= */
 .hero {
@@ -413,11 +346,6 @@ ul { padding: 0; list-style: none; }
    ========================================================= */
 @media (min-width: 900px) {
   :root { --gutter: clamp(40px, 4.2vw, 60px); }
-  .site-header .container { --gutter: clamp(30px, 2.8vw, 40px); }
-
-  /* menu horizontal */
-  .menu-button { display: none; }
-  .main-nav { display: flex; }
 
   .hero { padding: 62px 0 52px; }
   .hero h1 { font-size: 42px; margin-bottom: 4px; }

@@ -23,16 +23,16 @@
 
         <a href="#">Montagem e Configuração de Drones</a>
         <a href="#">Pilotagem de Drones</a>
-        <a href="#">OBaDrones</a>
-        <a href="#">Colibri</a>
+        <a href="{% url 'obadrones' %}">OBaDrones</a>
+        <a href="{% url 'colibri' %}">Colibri</a>
       </div>
 
       <!-- INSTITUIÇÃO -->
       <div class="site-footer__column">
         <h4>INSTITUIÇÃO</h4>
 
-        <a href="#">Sobre Nós</a>
-        <a href="#">Membros</a>
+        <a href="{% url 'sobre' %}">Sobre Nós</a>
+        <a href="{% url 'integrantes' %}">Membros</a>
         <a href="#">Equipes</a>
         <a href="#">Newsletter</a>
       </div>
@@ -114,7 +114,7 @@
 
       <span>
         Desenvolvido por
-        <a href="#">Educa Drones</a>
+        <a href="{% url 'home' %}">Educa Drones</a>
       </span>
     </div>
   </div>

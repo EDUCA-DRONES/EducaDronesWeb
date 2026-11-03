@@ -333,9 +333,7 @@ body {
 
 .home-inline-links {
     margin-top: 20px;
-    display: flex;
-    width: 100%;
-    box-sizing: border-box;
+    display: inline-flex;
 
     min-height: 48px;
     border: 1.6px solid var(--home-blue);
@@ -359,7 +357,7 @@ body {
         color .2s ease;
 }
 
-.home-inline-links a,
+.home-inline-links,
 .home-text-link {
     color: var(--home-blue);
     font-size: 14px;
@@ -368,7 +366,7 @@ body {
     color: #d9e0e6;
 }
 
-.home-inline-links a:hover,
+.home-inline-links:hover,
 .home-text-link:hover {
     text-decoration: none;
 }
@@ -2168,7 +2166,11 @@ body {
     }
 
     .home-eyebrow { margin-bottom: 16px; }
-
+    .home-inline-links {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
     /* Estatísticas */
     .home-stat {
         min-height: auto;

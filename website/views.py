@@ -30,7 +30,22 @@ def sobre(request):
 
 
 def integrantes(request):
-    return render(request, "Integrantes/nossotime.html")
+    from .models import MembroEquipe
+
+    pesquisadores = MembroEquipe.objects.filter(
+        categoria='pesquisador',
+        ativo=True
+    )
+
+    alunos = MembroEquipe.objects.filter(
+        categoria='aluno',
+        ativo=True
+    )
+
+    return render(request, 'Integrantes/nossotime.html', {
+        'pesquisadores': pesquisadores,
+        'alunos': alunos,
+    })
 
 
 def noticias(request):

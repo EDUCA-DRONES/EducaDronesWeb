@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if (sectionAlvo) {
     var observerOptions = {
       root: null,
-      rootMargin: "2500px 0px", // Começa a carregar 2500px antes da seção aparecer
+      rootMargin: "4000px 0px", // Começa a carregar 2500px antes da seção aparecer
       threshold: 0
     };
 

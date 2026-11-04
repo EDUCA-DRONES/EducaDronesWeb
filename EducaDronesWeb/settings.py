@@ -11,28 +11,25 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 from pathlib import Path
-from os import environ
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Iniciando as variaveis de ambiente
+env = environ.Env()
+env.read_env(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@_ux!=1+rcgleyo#%8qc#p#fsrc!969(b2-p!l+i28@5muz3qn'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', default=False)
 
-
-if DEBUG:
-    from dotenv import load_dotenv
-    # Carrega as variáveis do .env para o a função environ.get() funcionar corretamente
-    load_dotenv(BASE_DIR / '.env')
-
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS',default=['localhost', '127.0.0.1'])
 
 # Application definition
 
@@ -82,13 +79,26 @@ WSGI_APPLICATION = 'EducaDronesWeb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    # Banco local
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
-
+else:
+    # Banco de produção (PostgreSQL)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': env('DB_NAME'),
+            'USER': env('DB_USER'),
+            'PASSWORD': env('DB_PASSWORD'),
+            'HOST': env('DB_HOST'),
+            'PORT': env.int('DB_PORT', default=5432),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
@@ -129,6 +139,7 @@ USE_L10N = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -136,7 +147,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
-DEFAULT_FROM_EMAIL = f'Educa Drones <{environ.get("EMAIL")}>'
+DEFAULT_FROM_EMAIL = f'Educa Drones <{env("EMAIL")}>'
 
 MAILERS = {
     'default': {
@@ -146,8 +157,21 @@ MAILERS = {
             'host': 'smtp.gmail.com',  # Servidor do Gmail
             'port': 587,               # Porta padrão de segurança
             'use_tls': True,           # Ativa a criptografia
-            'username': environ.get('EMAIL'),  # Seu e-mail
-            'password': f"{environ.get('EMAIL_CREDENTIALS')}",
+            'username': env('EMAIL'),  # Seu e-mail
+            'password': f"{env('EMAIL_CREDENTIALS')}",
         },
     },
 }
+
+if not DEBUG:
+    # Cookies seguros (HTTPS) 
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+
+    # Forçar HTTPS
+    SECURE_SSL_REDIRECT = True
+
+    # 3. HSTS (Exige HTTPS estrito)
+    SECURE_HSTS_SECONDS = 31536000  # 1 ano em segundos
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True

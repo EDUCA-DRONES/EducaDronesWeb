@@ -9,13 +9,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    env:
+      secret_key: django-insecure-chave-ficticia-para-testes-ci
+      debug: True
+
     strategy:
       max-parallel: 4
       matrix:
         python-version: [3.13, 3.14, 3.15]
-    env:
-      secret_key: django-insecure-!@#%$^&*()_+1234567890
-      debug: True
 
     steps:
       - uses: actions/checkout@v4

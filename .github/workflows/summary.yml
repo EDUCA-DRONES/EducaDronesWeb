@@ -19,7 +19,8 @@ jobs:
       - name: Generate issue summary with GitHub Models
         id: inference
         env:
-          GH_TOKEN: ${{ github.token }}
+          # Substituímos o token padrão pelo Token Pessoal salvo nos Secrets
+          GH_TOKEN: ${{ secrets.GH_MODELS_PAT }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
@@ -64,6 +65,7 @@ jobs:
 
       - name: Comment with AI summary
         env:
+          # Aqui mantemos o GITHUB_TOKEN padrão apenas para postar o comentário
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           RESPONSE: ${{ steps.inference.outputs.response }}

@@ -1,0 +1,22 @@
+version: 2
+updates:
+  # Verifica pacotes Python (pip) no arquivo requirements.txt
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "dependencies"
+      - "dependabot"
+    open-pull-requests-limit: 5
+
+  # Verifica se as próprias GitHub Actions precisam de atualização
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels:
+      - "ci-cd"
+      - "dependabot"

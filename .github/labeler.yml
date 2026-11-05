@@ -1,0 +1,36 @@
+# Arquivos do GitHub Actions
+ci-cd:
+  - any: ['.github/**/*']
+
+# Configurações principais e rotas do Django
+core:
+  - any: ['EducaDronesWeb/**/*', 'manage.py', '.env.example']
+
+# Apps específicos do projeto
+app-emails:
+  - any: ['emails/**/*']
+
+app-livro-visitas:
+  - any: ['livro_de_visitas/**/*']
+
+app-noticias:
+  - any: ['noticias/**/*']
+
+app-website:
+  - any: ['website/**/*']
+
+# Arquivos de interface (HTML, CSS, JS, Imagens)
+frontend:
+  - any: ['templates/**/*', 'static/**/*']
+
+# Arquivos de mídia
+media:
+  - any: ['media/**/*']
+
+# Controle de dependências do Python
+dependencies:
+  - any: ['requirements.txt']
+
+# Documentação do projeto
+documentation:
+  - any: ['README.md']

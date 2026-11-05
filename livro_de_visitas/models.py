@@ -9,8 +9,6 @@ class Visitante(models.Model):
         ADULTO = '4', '26-59'
         IDOSO = '5', '60+'
 
-
-
     class Estados(models.TextChoices):
         AC = 'AC', 'Acre'
         AL = 'AL', 'Alagoas'

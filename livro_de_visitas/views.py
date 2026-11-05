@@ -24,12 +24,10 @@ def formulario(request):
 
             validacao = Visitante.objects.filter(
                 data_visita=datetime.date.today(),
-                telefone=form.cleaned_data["telefone"],
                 nome=form.cleaned_data["nome"].title(),
                 cidade=form.cleaned_data["cidade"].title(),
                 estado=form.cleaned_data["estado"],
-                data_nascimento=form.cleaned_data["data_nascimento"],
-                genero=form.cleaned_data["genero"]
+                faixa_etaria=form.cleaned_data["faixa_etaria"],
             ).exists()
 
             if validacao:

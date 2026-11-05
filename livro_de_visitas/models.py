@@ -1,13 +1,15 @@
 from django.db import models
-from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Visitante(models.Model):
-    class Genero(models.TextChoices):
-        MASCULINO = 'M', 'Masculino'
-        FEMININO = 'F', 'Feminino'
-        NAO_BINARIO = 'NB', 'Não Binário'
-        PREFIRO_NAO_RESPONDER = 'NR', 'Prefiro Não Responder'
+    class FaixaEtaria(models.TextChoices):
+        CRIANCA = '1', '0-11 anos'
+        ADOLESCENTE = '2', '12-17 anos'
+        JOVEM_ADULTO = '3', '18-25'
+        ADULTO = '4', '26-59'
+        IDOSO = '5', '60+'
+
+
 
     class Estados(models.TextChoices):
         AC = 'AC', 'Acre'
@@ -41,10 +43,7 @@ class Visitante(models.Model):
     nome = models.CharField(max_length=200)
     estado = models.CharField(max_length=2, choices=Estados.choices)
     cidade = models.CharField(max_length=50)
-    genero = models.CharField(
-        max_length=2, choices=Genero.choices, default=None)
-    telefone = PhoneNumberField(region="BR", null=True)
-    data_nascimento = models.DateField(null=False)
+    faixa_etaria = models.CharField(max_length=1, choices=FaixaEtaria.choices)
     data_visita = models.DateField(auto_now_add=True)
 
     def __str__(self):

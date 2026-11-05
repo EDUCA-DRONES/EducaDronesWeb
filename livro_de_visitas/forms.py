@@ -1,7 +1,6 @@
 from django import forms
 from django.core.validators import RegexValidator, MinLengthValidator
 from .models import Visitante
-from phonenumber_field.formfields import PhoneNumberField as PhoneFormField
 
 validador_letras = RegexValidator(
     regex=r'^[a-zA-ZÀ-ÿ ]+$',
@@ -13,11 +12,8 @@ class VisitanteForm(forms.ModelForm):
     class Meta:
         model = Visitante
         fields = ['nome', 'estado', 'cidade',
-                  'genero', 'telefone', 'data_nascimento']
+                  'faixa_etaria']
         widgets = {
-            'data_nascimento': forms.DateInput(attrs={'type': 'date'}),
-            'telefone': forms.TextInput(attrs={'type': 'tel', 'required': True, 'placeholder': 'Ex: 11 91234-5678'}),
-            'genero': forms.Select(attrs={'class': 'form-select'}),
             'nome': forms.TextInput(attrs={
                 'pattern': '[a-zA-ZÀ-ÿ ]+',
                 'title': 'Apenas letras são permitidas.',
@@ -32,13 +28,14 @@ class VisitanteForm(forms.ModelForm):
                 'class': 'form-select',
                 'disabled': True,
             }),
+            'faixa_etaria': forms.Select(attrs={'class': 'form-select', "required": True}),
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.fields['genero'].choices = [
-            ('', 'Selecione...')] + list(Visitante.Genero.choices)
+        self.fields['faixa_etaria'].choices = [
+            ('', 'Selecione...')] + list(Visitante.FaixaEtaria.choices)
 
         self.fields['estado'].choices = [
             ('', 'Selecione um Estado...')] + list(Visitante.Estados.choices)

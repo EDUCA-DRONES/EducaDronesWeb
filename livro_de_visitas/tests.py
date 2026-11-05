@@ -11,9 +11,7 @@ class VisitanteModelTests(TestCase):
             nome="Ana Silva",
             cidade="Guanambi",
             estado="BA",
-            genero=Visitante.Genero.FEMININO,
-            telefone=None,
-            data_nascimento="2000-01-01",
+            faixa_etaria=Visitante.FaixaEtaria.JOVEM_ADULTO,
         )
 
         self.assertEqual(str(visitante), "Ana Silva - Guanambi/BA")
@@ -25,9 +23,7 @@ class VisitanteFormTests(TestCase):
             "nome": "Ana Silva",
             "estado": "BA",
             "cidade": "Guanambi",
-            "genero": Visitante.Genero.FEMININO,
-            "telefone": "+5577981345831",
-            "data_nascimento": "2000-01-01",
+            "faixa_etaria": Visitante.FaixaEtaria.JOVEM_ADULTO,
         })
         form.fields["cidade"].choices = [
             ("", "Selecione uma cidade"),
@@ -41,9 +37,7 @@ class VisitanteFormTests(TestCase):
             "nome": "Ana123",
             "estado": "BA",
             "cidade": "Guanambi",
-            "genero": Visitante.Genero.FEMININO,
-            "telefone": "+5577981345831",
-            "data_nascimento": "2000-01-01",
+            "faixa_etaria": Visitante.FaixaEtaria.JOVEM_ADULTO,
         })
         form.fields["cidade"].choices = [("Guanambi", "Guanambi")]
 
@@ -70,25 +64,19 @@ class VisitanteViewsTests(TestCase):
             nome="Ana Silva",
             estado="BA",
             cidade="Guanambi",
-            genero=Visitante.Genero.FEMININO,
-            telefone=None,
-            data_nascimento="2000-01-01",
+            faixa_etaria=Visitante.FaixaEtaria.JOVEM_ADULTO,
         )
         Visitante.objects.create(
             nome="Bruno Souza",
             estado="BA",
             cidade="Guanambi",
-            genero=Visitante.Genero.MASCULINO,
-            telefone=None,
-            data_nascimento="1999-02-01",
+            faixa_etaria=Visitante.FaixaEtaria.ADULTO,
         )
         Visitante.objects.create(
             nome="Carla Costa",
             estado="SP",
             cidade="São Paulo",
-            genero=Visitante.Genero.NAO_BINARIO,
-            telefone=None,
-            data_nascimento="2001-03-01",
+            faixa_etaria=Visitante.FaixaEtaria.JOVEM_ADULTO,
         )
 
         response = self.client.get(reverse("mapa_impacto"))

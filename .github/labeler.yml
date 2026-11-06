@@ -1,51 +1,36 @@
 # Arquivos do GitHub Actions
 ci-cd:
-  - changed-files:
-      - any-glob-to-any-file: '.github/**/*'
+  - any: ['.github/**/*']
 
 # Configurações principais e rotas do Django
 core:
-  - changed-files:
-      - any-glob-to-any-file: 
-        - 'EducaDronesWeb/**/*'
-        - 'manage.py'
-        - '.env.example'
+  - any: ['EducaDronesWeb/**/*', 'manage.py', '.env.example']
 
 # Apps específicos do projeto
 app-emails:
-  - changed-files:
-      - any-glob-to-any-file: 'emails/**/*'
+  - any: ['emails/**/*']
 
 app-livro-visitas:
-  - changed-files:
-      - any-glob-to-any-file: 'livro_de_visitas/**/*'
+  - any: ['livro_de_visitas/**/*']
 
 app-noticias:
-  - changed-files:
-      - any-glob-to-any-file: 'noticias/**/*'
+  - any: ['noticias/**/*']
 
 app-website:
-  - changed-files:
-      - any-glob-to-any-file: 'website/**/*'
+  - any: ['website/**/*']
 
 # Arquivos de interface (HTML, CSS, JS, Imagens)
 frontend:
-  - changed-files:
-      - any-glob-to-any-file: 
-        - 'templates/**/*'
-        - 'static/**/*'
+  - any: ['templates/**/*', 'static/**/*']
 
 # Arquivos de mídia
 media:
-  - changed-files:
-      - any-glob-to-any-file: 'media/**/*'
+  - any: ['media/**/*']
 
 # Controle de dependências do Python
 dependencies:
-  - changed-files:
-      - any-glob-to-any-file: 'requirements.txt'
+  - any: ['requirements.txt']
 
 # Documentação do projeto
 documentation:
-  - changed-files:
-      - any-glob-to-any-file: 'README.md'
+  - any: ['README.md']

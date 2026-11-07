@@ -3,8 +3,8 @@ from django.db import models
 
 class Visitante(models.Model):
     class FaixaEtaria(models.TextChoices):
-        CRIANCA = '1', '0-11 anos'
-        ADOLESCENTE = '2', '12-17 anos'
+        CRIANCA = '1', '0-11'
+        ADOLESCENTE = '2', '12-17'
         JOVEM_ADULTO = '3', '18-25'
         ADULTO = '4', '26-59'
         IDOSO = '5', '60+'
